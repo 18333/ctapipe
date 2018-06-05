@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hillas Parameterization &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hillas_parameters" href="../api/ctapipe.image.hillas.hillas_parameters.html" />
+    <link rel="prev" title="Imaging (image)" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hillas Parameterization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-ctapipe.image.hillas">ctapipe.image.hillas Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#class-inheritance-diagram">Class Inheritance Diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cleaning.html">Image and Waveform Cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="muon.html">Muon image analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toymodel.html">Toy model image generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pixel_likelihood.html">Pixel likelihood calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="charge_extractors.html">Charge Extraction (cube to image)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reducers.html">Image volume reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_converter.html">Camera image conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#reference-api">Reference/API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a> &raquo;</li>
+        
+      <li>Hillas Parameterization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/image/hillas.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hillas-parameterization">
+<span id="image-hillas"></span><h1>Hillas Parameterization<a class="headerlink" href="#hillas-parameterization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-ctapipe.image.hillas">
+<span id="ctapipe-image-hillas-module"></span><h2>ctapipe.image.hillas Module<a class="headerlink" href="#module-ctapipe.image.hillas" title="Permalink to this headline">¶</a></h2>
+<p>Hillas-style moment-based shower image parametrization.</p>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.image.hillas.hillas_parameters.html#ctapipe.image.hillas.hillas_parameters" title="ctapipe.image.hillas.hillas_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hillas_parameters</span></code></a>(geom,&nbsp;image[,&nbsp;container])</td>
+<td>Compute Hillas parameters for a given shower image.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../api/ctapipe.image.hillas.hillas_parameters_1.html#ctapipe.image.hillas.hillas_parameters_1" title="ctapipe.image.hillas.hillas_parameters_1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hillas_parameters_1</span></code></a>(geom,&nbsp;image)</td>
+<td>Compute Hillas parameters for a given shower image.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.image.hillas.hillas_parameters_2.html#ctapipe.image.hillas.hillas_parameters_2" title="ctapipe.image.hillas.hillas_parameters_2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hillas_parameters_2</span></code></a>(geom,&nbsp;image)</td>
+<td>Compute Hillas parameters for a given shower image.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../api/ctapipe.image.hillas.hillas_parameters_3.html#ctapipe.image.hillas.hillas_parameters_3" title="ctapipe.image.hillas.hillas_parameters_3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hillas_parameters_3</span></code></a>(geom,&nbsp;image)</td>
+<td>Compute Hillas parameters for a given shower image.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.image.hillas.hillas_parameters_4.html#ctapipe.image.hillas.hillas_parameters_4" title="ctapipe.image.hillas.hillas_parameters_4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hillas_parameters_4</span></code></a>(geom,&nbsp;image[,&nbsp;container])</td>
+<td>Compute Hillas parameters for a given shower image.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.image.hillas.MomentParameters.html#ctapipe.image.hillas.MomentParameters" title="ctapipe.image.hillas.MomentParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MomentParameters</span></code></a>(size,&nbsp;cen_x,&nbsp;cen_y,&nbsp;length,&nbsp;…)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../api/ctapipe.image.hillas.HillasParameterizationError.html#ctapipe.image.hillas.HillasParameterizationError" title="ctapipe.image.hillas.HillasParameterizationError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HillasParameterizationError</span></code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="class-inheritance-diagram">
+<h3>Class Inheritance Diagram<a class="headerlink" href="#class-inheritance-diagram" title="Permalink to this headline">¶</a></h3>
+<img src="../_images/inheritance-c8bd406fee75aaae561cb975639efe16439652ae.png" alt="Inheritance diagram of ctapipe.image.hillas.MomentParameters, ctapipe.image.hillas.HillasParameterizationError" usemap="#inheritance06a709c349" class="inheritance"/>
+<map id="inheritance06a709c349" name="inheritance06a709c349">
+<area shape="rect" id="node1" href="../api/ctapipe.image.hillas.HillasParameterizationError.html#ctapipe.image.hillas.HillasParameterizationError" target="_top" title="HillasParameterizationError" alt="" coords="5,55,207,80"/>
+<area shape="rect" id="node2" href="../api/ctapipe.image.hillas.MomentParameters.html#ctapipe.image.hillas.MomentParameters" target="_top" title="MomentParameters(size, cen_x, cen_y, length, width, r, phi, psi, miss, skewness, kurtosis)" alt="" coords="31,5,181,31"/>
+</map></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api/ctapipe.image.hillas.hillas_parameters.html" class="btn btn-neutral float-right" title="hillas_parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Imaging (image)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

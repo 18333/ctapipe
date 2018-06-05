@@ -1,0 +1,29 @@
+NominalFrame
+============
+
+.. currentmodule:: ctapipe.coordinates
+
+.. autoclass:: NominalFrame
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~NominalFrame.array_direction
+      ~NominalFrame.default_differential
+      ~NominalFrame.default_representation
+      ~NominalFrame.frame_attributes
+      ~NominalFrame.frame_specific_representation_info
+      ~NominalFrame.name
+      ~NominalFrame.pointing_direction
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: array_direction
+   .. autoattribute:: default_differential
+   .. autoattribute:: default_representation
+   .. autoattribute:: frame_attributes
+   .. autoattribute:: frame_specific_representation_info
+   .. autoattribute:: name
+   .. autoattribute:: pointing_direction

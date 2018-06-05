@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Coordinates (coordinates) &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="alt_to_theta" href="../api/ctapipe.coordinates.alt_to_theta.html" />
+    <link rel="prev" title="TargetIOR1Calibrator" href="../api/ctapipe.calib.TargetIOR1Calibrator.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#earth-orientation-corrections">Earth Orientation Corrections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#todo">TODO:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reference-api">Reference/API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-ctapipe.coordinates">ctapipe.coordinates Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/coordinates/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="coordinates-coordinates">
+<span id="coordinates"></span><h1>Coordinates (<code class="xref py py-obj docutils literal notranslate"><span class="pre">coordinates</span></code>)<a class="headerlink" href="#coordinates-coordinates" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#module-ctapipe.coordinates" title="ctapipe.coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctapipe.coordinates</span></code></a> contains coordinate frame definitions and
+coordinate transformation routines that are associated with the
+reconstruction of Cherenkov telescope events.  It is built on
+<a class="reference external" href="http://docs.astropy.org/en/latest/coordinates/index.html#module-astropy.coordinates" title="(in Astropy v3.1.dev21977)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.coordinates</span></code></a>, which internally use the ERFA coordinate
+transformation library, the open-source-licensed fork of the IAU SOFA
+system.</p>
+<p>Maybe we’ll use the <a class="reference external" href="http://gwcs.readthedocs.org/en/latest/">gwcs</a> package
+for generalised world coordinate transformations to implement some coordinate
+transformations, e.g. precision pointing corrections using a pointing model.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Due to the underlying implementation of astropy coordinates and time
+representations, the transformation of a single coordinate between
+frames or time systems has a small overhead in speed.
+This can be mitigated by transforming many coordinates at once, which is
+much faster. All routines can accept arrays instead of single values.</p>
+</div>
+</div>
+<div class="section" id="earth-orientation-corrections">
+<h2>Earth Orientation Corrections<a class="headerlink" href="#earth-orientation-corrections" title="Permalink to this headline">¶</a></h2>
+<p>Polar motion and leap-second corrections are taken into account automatically
+by the use of <a class="reference external" href="http://docs.astropy.org/en/latest/coordinates/index.html#module-astropy.coordinates" title="(in Astropy v3.1.dev21977)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.coordinates</span></code></a> and <a class="reference external" href="http://docs.astropy.org/en/latest/time/index.html#module-astropy.time" title="(in Astropy v3.1.dev21977)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.time</span></code></a>.  Updates to the IERS
+tables are loaded automatically if an internet connection is available.  If
+you want to see what corrections are being used, use the following example:</p>
+<p>(<a class="reference external" href="../coordinates/index-1.py">Source code</a>, <a class="reference external" href="../coordinates/index-1.png">png</a>, <a class="reference external" href="../coordinates/index-1.hires.png">hires.png</a>, <a class="reference external" href="../coordinates/index-1.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="../_images/index-1.png" src="../_images/index-1.png" />
+</div>
+<div class="section" id="todo">
+<h3>TODO:<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>include time transform examples (using <a class="reference external" href="http://docs.astropy.org/en/latest/time/index.html#module-astropy.time" title="(in Astropy v3.1.dev21977)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.time</span></code></a>), particularly
+to the CTA-standard Mission-Elapsed (MET) time system, which is a
+Terrestrial Time with a specific MJD_offset.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The coordinate library defines a set of <em>frames</em>, which represent
+different coordinate reprentations. Coordinates should be described
+using an <a class="reference external" href="http://docs.astropy.org/en/latest/api/astropy.coordinates.SkyCoord.html#astropy.coordinates.SkyCoord" title="(in Astropy v3.1.dev21977)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.coordinates.SkyCoord</span></code></a> in the appropriate frame.</p>
+<p>The following special frames are defined for CTA:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../api/ctapipe.coordinates.CameraFrame.html#ctapipe.coordinates.CameraFrame" title="ctapipe.coordinates.CameraFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CameraFrame</span></code></a></li>
+<li><a class="reference internal" href="../api/ctapipe.coordinates.GroundFrame.html#ctapipe.coordinates.GroundFrame" title="ctapipe.coordinates.GroundFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GroundFrame</span></code></a></li>
+<li><a class="reference internal" href="../api/ctapipe.coordinates.TiltedGroundFrame.html#ctapipe.coordinates.TiltedGroundFrame" title="ctapipe.coordinates.TiltedGroundFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TiltedGroundFrame</span></code></a></li>
+<li><a class="reference internal" href="../api/ctapipe.coordinates.NominalFrame.html#ctapipe.coordinates.NominalFrame" title="ctapipe.coordinates.NominalFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NominalFrame</span></code></a></li>
+<li><a class="reference internal" href="../api/ctapipe.coordinates.HorizonFrame.html#ctapipe.coordinates.HorizonFrame" title="ctapipe.coordinates.HorizonFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HorizonFrame</span></code></a></li>
+<li><a class="reference internal" href="../api/ctapipe.coordinates.TelescopeFrame.html#ctapipe.coordinates.TelescopeFrame" title="ctapipe.coordinates.TelescopeFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TelescopeFrame</span></code></a></li>
+</ul>
+<p>they can be transformed to and from any other <a class="reference external" href="http://docs.astropy.org/en/latest/coordinates/index.html#module-astropy.coordinates" title="(in Astropy v3.1.dev21977)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.coordinates</span></code></a> frame, like
+<a class="reference external" href="http://docs.astropy.org/en/latest/api/astropy.coordinates.AltAz.html#astropy.coordinates.AltAz" title="(in Astropy v3.1.dev21977)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.coordinates.AltAz</span></code></a> or <a class="reference external" href="http://docs.astropy.org/en/latest/api/astropy.coordinates.ICRS.html#astropy.coordinates.ICRS" title="(in Astropy v3.1.dev21977)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.coordinates.ICRS</span></code></a> (RA/Dec)</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">astropy.units</span> <span class="kn">as</span> <span class="nn">u</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ctapipe.coordinates</span> <span class="kn">import</span> <span class="n">CameraFrame</span><span class="p">,</span> <span class="n">TelescopeFrame</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">camera_coord</span> <span class="o">=</span> <span class="n">CameraFrame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">camera_coord</span><span class="p">)</span>
+<span class="go">&lt;CameraFrame Coordinate: (x, y, z) in m</span>
+<span class="go">    (1.0, 2.0, 0.0)&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">telescope_coord</span> <span class="o">=</span> <span class="n">camera_coord</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">TelescopeFrame</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">telescope_coord</span><span class="p">)</span>
+<span class="go">&lt;TelescopeFrame Coordinate (focal_length=15.0 m): (x, y, z) [dimensionless]</span>
+<span class="go">    (0.06666667, 0.13333333, 0.0)&gt;</span>
+</pre></div>
+</div>
+<p>Note that Coordinate objects can accept arrays as input, so if one
+wants to transform a large list of coordinates from one frame to
+another, it is most efficient to pass them all at once.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">astropy.units</span> <span class="kn">as</span> <span class="nn">u</span>
+<span class="kn">from</span> <span class="nn">ctapipe.coordinates</span> <span class="kn">import</span> <span class="n">CameraFrame</span><span class="p">,</span> <span class="n">TelescopeFrame</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="o">-</span><span class="mf">0.6</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span>
+<span class="n">camera_coord</span> <span class="o">=</span> <span class="n">CameraFrame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<span class="n">telescope_coord</span> <span class="o">=</span> <span class="n">camera_coord</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">TelescopeFrame</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">telescope_coord</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;X:&quot;</span><span class="p">,</span><span class="n">telescope_coord</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Y:&quot;</span><span class="p">,</span><span class="n">telescope_coord</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result is a set of coordinates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">TelescopeFrame</span> <span class="n">Coordinate</span> <span class="p">(</span><span class="n">focal_length</span><span class="o">=</span><span class="mf">15.0</span> <span class="n">m</span><span class="p">):</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="p">[</span><span class="n">dimensionless</span><span class="p">]</span>
+   <span class="p">[(</span><span class="mf">0.00666667</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.00666667</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.01333333</span><span class="p">,</span> <span class="mf">0.02666667</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+   <span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02666667</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.02666667</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+   <span class="p">(</span><span class="mf">0.03333333</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)]</span><span class="o">&gt;</span>
+<span class="n">X</span><span class="p">:</span> <span class="p">[</span> <span class="mf">0.00666667</span>  <span class="mf">0.01333333</span>  <span class="mf">0.02</span>        <span class="mf">0.02666667</span>  <span class="mf">0.03333333</span><span class="p">]</span>
+<span class="n">Y</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.00666667</span>  <span class="mf">0.02666667</span> <span class="o">-</span><span class="mf">0.02666667</span>  <span class="mf">0.04</span>       <span class="o">-</span><span class="mf">0.04</span>      <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="reference-api">
+<h2>Reference/API<a class="headerlink" href="#reference-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-ctapipe.coordinates">
+<span id="ctapipe-coordinates-package"></span><h3>ctapipe.coordinates Package<a class="headerlink" href="#module-ctapipe.coordinates" title="Permalink to this headline">¶</a></h3>
+<p>Coordinates.</p>
+<div class="section" id="functions">
+<h4>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.coordinates.alt_to_theta.html#ctapipe.coordinates.alt_to_theta" title="ctapipe.coordinates.alt_to_theta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">alt_to_theta</span></code></a>(alt)</td>
+<td>transforms altitude (angle from the horizon upwards) to theta (angle from z-axis) for simtel array coordinate systems</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../api/ctapipe.coordinates.az_to_phi.html#ctapipe.coordinates.az_to_phi" title="ctapipe.coordinates.az_to_phi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">az_to_phi</span></code></a>(az)</td>
+<td>transforms azimuth (angle from north towards east) to phi (angle from x-axis towards y-axis) for simtel array coordinate systems</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.coordinates.pixel_position_to_direction.html#ctapipe.coordinates.pixel_position_to_direction" title="ctapipe.coordinates.pixel_position_to_direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pixel_position_to_direction</span></code></a>(pix_x,&nbsp;pix_y,&nbsp;…)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../api/ctapipe.coordinates.project_to_ground.html#ctapipe.coordinates.project_to_ground" title="ctapipe.coordinates.project_to_ground"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project_to_ground</span></code></a>(tilt_system)</td>
+<td>Project position in the tilted system onto the ground.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.coordinates.transform_pixel_position.html#ctapipe.coordinates.transform_pixel_position" title="ctapipe.coordinates.transform_pixel_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform_pixel_position</span></code></a>(x,&nbsp;y)</td>
+<td>transforms the x and y coordinates on the camera plane so that they correspond to the view as if looked along the pointing direction of the telescope, i.e.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="classes">
+<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.coordinates.CameraFrame.html#ctapipe.coordinates.CameraFrame" title="ctapipe.coordinates.CameraFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CameraFrame</span></code></a>(*args[,&nbsp;copy,&nbsp;…])</td>
+<td>Camera coordinate frame.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../api/ctapipe.coordinates.GroundFrame.html#ctapipe.coordinates.GroundFrame" title="ctapipe.coordinates.GroundFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GroundFrame</span></code></a>(*args[,&nbsp;copy,&nbsp;…])</td>
+<td>Ground coordinate frame.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.coordinates.HorizonFrame.html#ctapipe.coordinates.HorizonFrame" title="ctapipe.coordinates.HorizonFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HorizonFrame</span></code></a>(*args[,&nbsp;copy,&nbsp;…])</td>
+<td>Horizon coordinate frame.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../api/ctapipe.coordinates.NominalFrame.html#ctapipe.coordinates.NominalFrame" title="ctapipe.coordinates.NominalFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NominalFrame</span></code></a>(*args[,&nbsp;copy,&nbsp;…])</td>
+<td>Nominal coordinate frame.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../api/ctapipe.coordinates.TelescopeFrame.html#ctapipe.coordinates.TelescopeFrame" title="ctapipe.coordinates.TelescopeFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TelescopeFrame</span></code></a>(*args[,&nbsp;copy,&nbsp;…])</td>
+<td>Telescope coordinate frame.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../api/ctapipe.coordinates.TiltedGroundFrame.html#ctapipe.coordinates.TiltedGroundFrame" title="ctapipe.coordinates.TiltedGroundFrame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TiltedGroundFrame</span></code></a>(*args[,&nbsp;copy,&nbsp;…])</td>
+<td>Tilted ground coordinate frame.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api/ctapipe.coordinates.alt_to_theta.html" class="btn btn-neutral float-right" title="alt_to_theta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../api/ctapipe.calib.TargetIOR1Calibrator.html" class="btn btn-neutral" title="TargetIOR1Calibrator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

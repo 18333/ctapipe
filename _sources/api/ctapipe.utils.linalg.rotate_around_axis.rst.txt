@@ -1,0 +1,6 @@
+rotate_around_axis
+==================
+
+.. currentmodule:: ctapipe.utils.linalg
+
+.. autofunction:: rotate_around_axis

@@ -1,0 +1,19 @@
+InstrumentContainer
+===================
+
+.. currentmodule:: ctapipe.io.containers
+
+.. autoclass:: InstrumentContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~InstrumentContainer.meta
+      ~InstrumentContainer.subarray
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta
+   .. autoattribute:: subarray

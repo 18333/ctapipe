@@ -1,0 +1,29 @@
+HorizonFrame
+============
+
+.. currentmodule:: ctapipe.coordinates
+
+.. autoclass:: HorizonFrame
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~HorizonFrame.array_direction
+      ~HorizonFrame.default_differential
+      ~HorizonFrame.default_representation
+      ~HorizonFrame.frame_attributes
+      ~HorizonFrame.frame_specific_representation_info
+      ~HorizonFrame.name
+      ~HorizonFrame.pointing_direction
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: array_direction
+   .. autoattribute:: default_differential
+   .. autoattribute:: default_representation
+   .. autoattribute:: frame_attributes
+   .. autoattribute:: frame_specific_representation_info
+   .. autoattribute:: name
+   .. autoattribute:: pointing_direction

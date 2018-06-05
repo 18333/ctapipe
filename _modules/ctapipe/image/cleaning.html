@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ctapipe.image.cleaning &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ctapipe.image.cleaning</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ctapipe.image.cleaning</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Image Cleaning Algorithms (identification of noisy pixels)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tailcuts_clean&#39;</span><span class="p">,</span> <span class="s1">&#39;dilate&#39;</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="tailcuts_clean"><a class="viewcode-back" href="../../../api/ctapipe.image.tailcuts_clean.html#ctapipe.image.cleaning.tailcuts_clean">[docs]</a><span class="k">def</span> <span class="nf">tailcuts_clean</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">picture_thresh</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">boundary_thresh</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                   <span class="n">keep_isolated_pixels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                   <span class="n">min_number_picture_neighbors</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Clean an image by selection pixels that pass a two-threshold</span>
+<span class="sd">    tail-cuts procedure.  The picture and boundary thresholds are</span>
+<span class="sd">    defined with respect to the pedestal dispersion. All pixels that</span>
+<span class="sd">    have a signal higher than the picture threshold will be retained,</span>
+<span class="sd">    along with all those above the boundary threshold that are</span>
+<span class="sd">    neighbors of a picture pixel.</span>
+
+<span class="sd">    To include extra neighbor rows of pixels beyond what are accepted, use the</span>
+<span class="sd">    `ctapipe.image.dilate` function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    geom: `ctapipe.instrument.CameraGeometry`</span>
+<span class="sd">        Camera geometry information</span>
+<span class="sd">    image: array</span>
+<span class="sd">        pixel values</span>
+<span class="sd">    picture_thresh: float or array</span>
+<span class="sd">        threshold above which all pixels are retained</span>
+<span class="sd">    boundary_thresh: float or array</span>
+<span class="sd">        threshold above which pixels are retained if they have a neighbor</span>
+<span class="sd">        already above the picture_thresh</span>
+<span class="sd">    keep_isolated_pixels: bool</span>
+<span class="sd">        If True, pixels above the picture threshold will be included always,</span>
+<span class="sd">        if not they are only included if a neighbor is in the picture or</span>
+<span class="sd">        boundary</span>
+<span class="sd">    min_number_picture_neighbors: int</span>
+<span class="sd">        A picture pixel survives cleaning only if it has at least this number</span>
+<span class="sd">        of picture neighbors. This has no effect in case keep_isolated_pixels is True</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    A boolean mask of *clean* pixels.  To get a zero-suppressed image and pixel</span>
+<span class="sd">    list, use `image[mask], geom.pix_id[mask]`, or to keep the same</span>
+<span class="sd">    image size and just set unclean pixels to 0 or similar, use</span>
+<span class="sd">    `image[~mask] = 0`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pixels_above_picture</span> <span class="o">=</span> <span class="n">image</span> <span class="o">&gt;=</span> <span class="n">picture_thresh</span>
+
+    <span class="k">if</span> <span class="n">keep_isolated_pixels</span> <span class="ow">or</span> <span class="n">min_number_picture_neighbors</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">pixels_in_picture</span> <span class="o">=</span> <span class="n">pixels_above_picture</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Require at least min_number_picture_neighbors. Otherwise, the pixel</span>
+        <span class="c1">#  is not selected</span>
+        <span class="n">number_of_neighbors_above_picture</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">neighbor_matrix_sparse</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+            <span class="n">pixels_above_picture</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">byte</span><span class="p">))</span>
+        <span class="n">pixels_in_picture</span> <span class="o">=</span> <span class="n">pixels_above_picture</span> <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">number_of_neighbors_above_picture</span> <span class="o">&gt;=</span> <span class="n">min_number_picture_neighbors</span>
+        <span class="p">)</span>
+
+    <span class="c1"># by broadcasting together pixels_in_picture (1d) with the neighbor</span>
+    <span class="c1"># matrix (2d), we find all pixels that are above the boundary threshold</span>
+    <span class="c1"># AND have any neighbor that is in the picture</span>
+    <span class="n">pixels_above_boundary</span> <span class="o">=</span> <span class="n">image</span> <span class="o">&gt;=</span> <span class="n">boundary_thresh</span>
+    <span class="n">pixels_with_picture_neighbors</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">neighbor_matrix_sparse</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+        <span class="n">pixels_in_picture</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">keep_isolated_pixels</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">pixels_above_boundary</span>
+                <span class="o">&amp;</span> <span class="n">pixels_with_picture_neighbors</span><span class="p">)</span> <span class="o">|</span> <span class="n">pixels_in_picture</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pixels_with_boundary_neighbors</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">neighbor_matrix_sparse</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+            <span class="n">pixels_above_boundary</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">pixels_above_boundary</span> <span class="o">&amp;</span> <span class="n">pixels_with_picture_neighbors</span><span class="p">)</span> <span class="o">|</span>
+                <span class="p">(</span><span class="n">pixels_in_picture</span> <span class="o">&amp;</span> <span class="n">pixels_with_boundary_neighbors</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="dilate"><a class="viewcode-back" href="../../../api/ctapipe.image.dilate.html#ctapipe.image.cleaning.dilate">[docs]</a><span class="k">def</span> <span class="nf">dilate</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add one row of neighbors to the True values of a pixel mask and return</span>
+<span class="sd">    the new mask.</span>
+<span class="sd">    This can be used to include extra rows of pixels in a mask that was</span>
+<span class="sd">    pre-computed, e.g. via `tailcuts_clean`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    geom: `~ctapipe.instrument.CameraGeometry`</span>
+<span class="sd">        Camera geometry information</span>
+<span class="sd">    mask: ndarray</span>
+<span class="sd">        input mask (array of booleans) to be dilated</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">mask</span> <span class="o">|</span> <span class="n">geom</span><span class="o">.</span><span class="n">neighbor_matrix_sparse</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

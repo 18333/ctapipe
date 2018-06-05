@@ -1,0 +1,19 @@
+TargetIOCameraContainer
+=======================
+
+.. currentmodule:: ctapipe.io.containers
+
+.. autoclass:: TargetIOCameraContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~TargetIOCameraContainer.first_cell_ids
+      ~TargetIOCameraContainer.meta
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: first_cell_ids
+   .. autoattribute:: meta

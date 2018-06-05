@@ -1,0 +1,19 @@
+DL1Container
+============
+
+.. currentmodule:: ctapipe.io.containers
+
+.. autoclass:: DL1Container
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~DL1Container.meta
+      ~DL1Container.tel
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta
+   .. autoattribute:: tel

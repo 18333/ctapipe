@@ -1,0 +1,19 @@
+TargetIOContainer
+=================
+
+.. currentmodule:: ctapipe.io.containers
+
+.. autoclass:: TargetIOContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~TargetIOContainer.meta
+      ~TargetIOContainer.tel
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta
+   .. autoattribute:: tel

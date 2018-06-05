@@ -1,0 +1,19 @@
+Serializer
+==========
+
+.. currentmodule:: ctapipe.io.serializer
+
+.. autoclass:: Serializer
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Serializer.add_container
+      ~Serializer.close
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: add_container
+   .. automethod:: close

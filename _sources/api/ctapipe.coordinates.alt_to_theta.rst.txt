@@ -1,0 +1,6 @@
+alt_to_theta
+============
+
+.. currentmodule:: ctapipe.coordinates
+
+.. autofunction:: alt_to_theta

@@ -1,0 +1,6 @@
+set_phi_theta_r
+===============
+
+.. currentmodule:: ctapipe.utils.linalg
+
+.. autofunction:: set_phi_theta_r

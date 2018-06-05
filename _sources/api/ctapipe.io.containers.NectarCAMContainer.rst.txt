@@ -1,0 +1,21 @@
+NectarCAMContainer
+==================
+
+.. currentmodule:: ctapipe.io.containers
+
+.. autoclass:: NectarCAMContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~NectarCAMContainer.meta
+      ~NectarCAMContainer.tel
+      ~NectarCAMContainer.tels_with_data
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta
+   .. autoattribute:: tel
+   .. autoattribute:: tels_with_data

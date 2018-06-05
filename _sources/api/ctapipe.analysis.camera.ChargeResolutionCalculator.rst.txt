@@ -1,0 +1,45 @@
+ChargeResolutionCalculator
+==========================
+
+.. currentmodule:: ctapipe.analysis.camera
+
+.. autoclass:: ChargeResolutionCalculator
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~ChargeResolutionCalculator.binning
+      ~ChargeResolutionCalculator.log_bins
+      ~ChargeResolutionCalculator.max_pe
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ChargeResolutionCalculator.add_charges
+      ~ChargeResolutionCalculator.get_charge_resolution
+      ~ChargeResolutionCalculator.goal
+      ~ChargeResolutionCalculator.limit_curves
+      ~ChargeResolutionCalculator.load
+      ~ChargeResolutionCalculator.poisson
+      ~ChargeResolutionCalculator.requirement
+      ~ChargeResolutionCalculator.save
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: binning
+   .. autoattribute:: log_bins
+   .. autoattribute:: max_pe
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: add_charges
+   .. automethod:: get_charge_resolution
+   .. automethod:: goal
+   .. automethod:: limit_curves
+   .. automethod:: load
+   .. automethod:: poisson
+   .. automethod:: requirement
+   .. automethod:: save

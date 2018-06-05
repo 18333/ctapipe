@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ctapipe.coordinates.coordinate_transformations &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ctapipe.coordinates.coordinate_transformations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ctapipe.coordinates.coordinate_transformations</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">astropy.utils.decorators</span> <span class="k">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="k">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+
+<span class="kn">from</span> <span class="nn">ctapipe</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">ctapipe.utils</span> <span class="k">import</span> <span class="n">linalg</span>
+
+
+<div class="viewcode-block" id="pixel_position_to_direction"><a class="viewcode-back" href="../../../api/ctapipe.coordinates.pixel_position_to_direction.html#ctapipe.coordinates.pixel_position_to_direction">[docs]</a><span class="nd">@deprecated</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;will be replaced with proper coord transform&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">pixel_position_to_direction</span><span class="p">(</span><span class="n">pix_x</span><span class="p">,</span> <span class="n">pix_y</span><span class="p">,</span> <span class="n">tel_phi</span><span class="p">,</span> <span class="n">tel_theta</span><span class="p">,</span> <span class="n">tel_foclen</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    TODO replace with proper implementation</span>
+<span class="sd">    calculates the direction vector of corresponding to a</span>
+<span class="sd">    (x,y) position on the camera</span>
+
+<span class="sd">    beta is the pixel&#39;s angular distance to the centre</span>
+<span class="sd">    according to beta / tel_view = r / maxR</span>
+<span class="sd">    alpha is the polar angle between the y-axis and the pixel</span>
+<span class="sd">    to find the direction the pixel is looking at:</span>
+
+<span class="sd">    - the pixel direction is set to the telescope direction</span>
+<span class="sd">    - offset by beta towards up</span>
+<span class="sd">    - rotated around the telescope direction by the angle alpha</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    pix_x, pix_y : ndarray</span>
+<span class="sd">        lists of x and y positions on the camera</span>
+<span class="sd">    tel_phi, tel_theta: astropy quantities</span>
+<span class="sd">        two angles that describe the orientation of the telescope</span>
+<span class="sd">    tel_foclen : astropy quantity</span>
+<span class="sd">        focal length of the telescope</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pix_dirs : ndarray</span>
+<span class="sd">        shape (n,3) list of &quot;direction vectors&quot;</span>
+<span class="sd">        corresponding to a position on the camera</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pix_alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="o">-</span><span class="n">pix_y</span><span class="p">,</span> <span class="n">pix_x</span><span class="p">)</span>
+
+    <span class="n">pix_rho</span> <span class="o">=</span> <span class="p">(</span><span class="n">pix_x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">pix_y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="o">.</span><span class="mi">5</span>
+
+    <span class="n">pix_beta</span> <span class="o">=</span> <span class="n">pix_rho</span> <span class="o">/</span> <span class="n">tel_foclen</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+
+    <span class="n">tel_dir</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">set_phi_theta</span><span class="p">(</span><span class="n">tel_phi</span><span class="p">,</span> <span class="n">tel_theta</span><span class="p">)</span>
+
+    <span class="n">pix_dirs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pix_alpha</span><span class="p">,</span> <span class="n">pix_beta</span><span class="p">):</span>
+        <span class="n">pix_dir</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">set_phi_theta</span><span class="p">(</span><span class="n">tel_phi</span><span class="p">,</span> <span class="n">tel_theta</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+
+        <span class="n">pix_dir</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">rotate_around_axis</span><span class="p">(</span><span class="n">pix_dir</span><span class="p">,</span> <span class="n">tel_dir</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">pix_dirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pix_dir</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">dimless</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pix_dirs</span></div>
+
+
+<div class="viewcode-block" id="alt_to_theta"><a class="viewcode-back" href="../../../api/ctapipe.coordinates.alt_to_theta.html#ctapipe.coordinates.alt_to_theta">[docs]</a><span class="k">def</span> <span class="nf">alt_to_theta</span><span class="p">(</span><span class="n">alt</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;transforms altitude (angle from the horizon upwards) to theta (angle from z-axis)</span>
+<span class="sd">    for simtel array coordinate systems</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">90</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span> <span class="o">-</span> <span class="n">alt</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="az_to_phi"><a class="viewcode-back" href="../../../api/ctapipe.coordinates.az_to_phi.html#ctapipe.coordinates.az_to_phi">[docs]</a><span class="k">def</span> <span class="nf">az_to_phi</span><span class="p">(</span><span class="n">az</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;transforms azimuth (angle from north towards east)</span>
+<span class="sd">    to phi (angle from x-axis towards y-axis)</span>
+<span class="sd">    for simtel array coordinate systems</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">az</span></div>
+
+
+<div class="viewcode-block" id="transform_pixel_position"><a class="viewcode-back" href="../../../api/ctapipe.coordinates.transform_pixel_position.html#ctapipe.coordinates.transform_pixel_position">[docs]</a><span class="k">def</span> <span class="nf">transform_pixel_position</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;transforms the x and y coordinates on the camera plane so that they correspond to</span>
+<span class="sd">    the view as if looked along the pointing direction of the telescope, i.e. y-&gt;up and</span>
+<span class="sd">    x-&gt;right</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">y</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

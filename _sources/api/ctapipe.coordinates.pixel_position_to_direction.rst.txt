@@ -1,0 +1,6 @@
+pixel_position_to_direction
+===========================
+
+.. currentmodule:: ctapipe.coordinates
+
+.. autofunction:: pixel_position_to_direction

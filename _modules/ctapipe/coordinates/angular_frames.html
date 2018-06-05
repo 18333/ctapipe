@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ctapipe.coordinates.angular_frames &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ctapipe.coordinates.angular_frames</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ctapipe.coordinates.angular_frames</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module defines the important coordinate systems to be used in</span>
+<span class="sd">reconstruction with the CTA pipeline and the transformations between</span>
+<span class="sd">this different systems. Frames and transformations are defined using</span>
+<span class="sd">the astropy.coordinates framework. This module contains transformations</span>
+<span class="sd">between angular systems.</span>
+
+<span class="sd">For examples on usage see examples/coordinate_transformations.py</span>
+
+<span class="sd">This code is based on the coordinate transformations performed in the</span>
+<span class="sd">read_hess code</span>
+
+<span class="sd">TODO:</span>
+
+<span class="sd">- Tests Tests Tests!</span>
+<span class="sd">- Check cartesian system is still accurate for the nominal and</span>
+<span class="sd">  telescope systems (may need a spherical system)</span>
+<span class="sd">- Benchmark transformation time</span>
+<span class="sd">- should use `astropy.coordinates.Angle` for all angles here</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="k">import</span> <span class="p">(</span><span class="n">BaseCoordinateFrame</span><span class="p">,</span>
+                                 <span class="n">CartesianRepresentation</span><span class="p">,</span>
+                                 <span class="n">UnitSphericalRepresentation</span><span class="p">,</span>
+                                 <span class="n">FunctionTransform</span><span class="p">,</span> <span class="n">RepresentationMapping</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># FrameAttribute was renamed Attribute in astropy 2.0</span>
+    <span class="c1"># TODO: should really use subclasses like QuantityAttribute</span>
+    <span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="k">import</span> <span class="n">FrameAttribute</span> <span class="k">as</span> <span class="n">Attribute</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="k">import</span> <span class="n">Attribute</span>
+
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="k">import</span> <span class="n">frame_transform_graph</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">arctan</span><span class="p">,</span> <span class="n">arctan2</span><span class="p">,</span> <span class="n">arcsin</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">arccos</span><span class="p">,</span> <span class="n">tan</span>
+<span class="kn">from</span> <span class="nn">..coordinates.representation</span> <span class="k">import</span> <span class="n">PlanarRepresentation</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;CameraFrame&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;TelescopeFrame&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NominalFrame&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HorizonFrame&#39;</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="CameraFrame"><a class="viewcode-back" href="../../../api/ctapipe.coordinates.CameraFrame.html#ctapipe.coordinates.CameraFrame">[docs]</a><span class="k">class</span> <span class="nc">CameraFrame</span><span class="p">(</span><span class="n">BaseCoordinateFrame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Camera coordinate frame.  The camera frame is a simple physical</span>
+<span class="sd">    cartesian frame, describing the 2 dimensional position of objects</span>
+<span class="sd">    in the focal plane of the telescope Most Typically this will be</span>
+<span class="sd">    used to describe the positions of the pixels in the focal plane</span>
+
+<span class="sd">    Frame attributes:</span>
+
+<span class="sd">    * ``focal_length``</span>
+<span class="sd">        Focal length of the telescope as a unit quantity (usually meters)</span>
+<span class="sd">    * ``rotation``</span>
+<span class="sd">        Rotation angle of the camera (0 deg in most cases)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">default_representation</span> <span class="o">=</span> <span class="n">PlanarRepresentation</span>
+    <span class="n">focal_length</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">rotation</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+    <span class="n">pointing_direction</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">array_direction</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TelescopeFrame"><a class="viewcode-back" href="../../../api/ctapipe.coordinates.TelescopeFrame.html#ctapipe.coordinates.TelescopeFrame">[docs]</a><span class="k">class</span> <span class="nc">TelescopeFrame</span><span class="p">(</span><span class="n">BaseCoordinateFrame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Telescope coordinate frame.  Cartesian system to describe the</span>
+<span class="sd">    angular offset of a given position in reference to pointing</span>
+<span class="sd">    direction of a given telescope When pointing corrections become</span>
+<span class="sd">    available they should be applied to the transformation between</span>
+<span class="sd">    this frame and the camera frame</span>
+
+<span class="sd">    Frame attributes:</span>
+
+<span class="sd">    * ``focal_length``</span>
+<span class="sd">        Focal length of the telescope as a unit quantity (usually meters)</span>
+<span class="sd">    * ``rotation``</span>
+<span class="sd">        Rotation angle of the camera (0 deg in most cases)</span>
+<span class="sd">    * ``pointing_direction``</span>
+<span class="sd">        Alt,Az direction of the telescope pointing</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">default_representation</span> <span class="o">=</span> <span class="n">PlanarRepresentation</span>
+    <span class="n">pointing_direction</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NominalFrame"><a class="viewcode-back" href="../../../api/ctapipe.coordinates.NominalFrame.html#ctapipe.coordinates.NominalFrame">[docs]</a><span class="k">class</span> <span class="nc">NominalFrame</span><span class="p">(</span><span class="n">BaseCoordinateFrame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Nominal coordinate frame.  Cartesian system to describe the angular</span>
+<span class="sd">    offset of a given position in reference to pointing direction of a</span>
+<span class="sd">    nominal array pointing position. In most cases this frame is the</span>
+<span class="sd">    same as the telescope frame, however in the case of divergent</span>
+<span class="sd">    pointing they will differ.  Event reconstruction should be</span>
+<span class="sd">    performed in this system</span>
+
+<span class="sd">    Frame attributes:</span>
+
+<span class="sd">    * ``array_direction``</span>
+<span class="sd">        Alt,Az direction of the array pointing</span>
+<span class="sd">    * ``pointing_direction``</span>
+<span class="sd">        Alt,Az direction of the telescope pointing</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">default_representation</span> <span class="o">=</span> <span class="n">PlanarRepresentation</span>
+    <span class="n">pointing_direction</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">array_direction</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="HorizonFrame"><a class="viewcode-back" href="../../../api/ctapipe.coordinates.HorizonFrame.html#ctapipe.coordinates.HorizonFrame">[docs]</a><span class="k">class</span> <span class="nc">HorizonFrame</span><span class="p">(</span><span class="n">BaseCoordinateFrame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Horizon coordinate frame. Spherical system used to describe the direction</span>
+<span class="sd">    of a given position, in terms of the altitude and azimuth of the system. In</span>
+<span class="sd">    practice this is functionally identical as the astropy AltAz system, but this</span>
+<span class="sd">    implementation allows us to pass array pointing information, allowing us to directly</span>
+<span class="sd">    transform to the Horizon Frame from the Camera system.</span>
+<span class="sd">    The Following attributes are carried over from the telescope frame</span>
+<span class="sd">    to allow a direct transformation from the camera frame</span>
+
+<span class="sd">    Frame attributes:</span>
+
+<span class="sd">    * ``array_direction``</span>
+<span class="sd">        Alt,Az direction of the array pointing</span>
+<span class="sd">    * ``pointing_direction``</span>
+<span class="sd">        Alt,Az direction of the telescope pointing</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">default_representation</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span>
+
+    <span class="n">frame_specific_representation_info</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;spherical&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">RepresentationMapping</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;az&#39;</span><span class="p">),</span>
+                      <span class="n">RepresentationMapping</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;alt&#39;</span><span class="p">)],</span>
+    <span class="p">}</span>
+
+    <span class="n">frame_specific_representation_info</span><span class="p">[</span><span class="s1">&#39;unitspherical&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame_specific_representation_info</span><span class="p">[</span><span class="s1">&#39;spherical&#39;</span><span class="p">]</span>
+
+    <span class="n">pointing_direction</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">array_direction</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<span class="c1"># Transformations defined below this point</span>
+
+<span class="k">def</span> <span class="nf">altaz_to_offset</span><span class="p">(</span><span class="n">obj_azimuth</span><span class="p">,</span> <span class="n">obj_altitude</span><span class="p">,</span> <span class="n">azimuth</span><span class="p">,</span> <span class="n">altitude</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to convert a given altitude and azimuth to a cartesian angular</span>
+<span class="sd">    angular offset with regard to a give reference system</span>
+<span class="sd">    (This function is directly lifted from read_hess)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obj_azimuth: float</span>
+<span class="sd">        Event azimuth (radians)</span>
+<span class="sd">    obj_altitude: float</span>
+<span class="sd">        Event altitude (radians)</span>
+<span class="sd">    azimuth: float</span>
+<span class="sd">        Reference system azimuth (radians)</span>
+<span class="sd">    altitude: float</span>
+<span class="sd">        Reference system altitude (radians)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x_off,y_off: (float,float)</span>
+<span class="sd">        Offset of the event in the reference system (in radians)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">diff_az</span> <span class="o">=</span> <span class="n">obj_azimuth</span> <span class="o">-</span> <span class="n">azimuth</span>
+    <span class="n">cosine_obj_alt</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">obj_altitude</span><span class="p">)</span>
+
+    <span class="n">xp0</span> <span class="o">=</span> <span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">diff_az</span><span class="p">)</span> <span class="o">*</span> <span class="n">cosine_obj_alt</span>
+    <span class="n">yp0</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">diff_az</span><span class="p">)</span> <span class="o">*</span> <span class="n">cosine_obj_alt</span>
+    <span class="n">zp0</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">obj_altitude</span><span class="p">)</span>
+
+    <span class="n">sin_sys_alt</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+    <span class="n">cos_sys_alt</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+
+    <span class="n">xp1</span> <span class="o">=</span> <span class="n">sin_sys_alt</span> <span class="o">*</span> <span class="n">xp0</span> <span class="o">+</span> <span class="n">cos_sys_alt</span> <span class="o">*</span> <span class="n">zp0</span>
+    <span class="n">yp1</span> <span class="o">=</span> <span class="n">yp0</span>
+    <span class="n">zp1</span> <span class="o">=</span> <span class="o">-</span><span class="n">cos_sys_alt</span> <span class="o">*</span> <span class="n">xp0</span> <span class="o">+</span> <span class="n">sin_sys_alt</span> <span class="o">*</span> <span class="n">zp0</span>
+
+    <span class="n">disp</span> <span class="o">=</span> <span class="n">tan</span><span class="p">(</span><span class="n">arccos</span><span class="p">(</span><span class="n">zp1</span><span class="p">))</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">yp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">)</span>
+
+    <span class="n">x_off</span> <span class="o">=</span> <span class="n">disp</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">y_off</span> <span class="o">=</span> <span class="n">disp</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x_off</span><span class="p">,</span> <span class="n">y_off</span>
+
+
+<span class="k">def</span> <span class="nf">offset_to_altaz</span><span class="p">(</span><span class="n">x_off</span><span class="p">,</span> <span class="n">y_off</span><span class="p">,</span> <span class="n">azimuth</span><span class="p">,</span> <span class="n">altitude</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to convert an angular offset with regard to a give</span>
+<span class="sd">    reference system to an an absolute altitude and azimuth (This</span>
+<span class="sd">    function is directly lifted from read_hess)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_off: float</span>
+<span class="sd">        X offset of the event in the reference system</span>
+<span class="sd">    y_off: float</span>
+<span class="sd">        Y offset of the event in the reference system</span>
+<span class="sd">    azimuth: float</span>
+<span class="sd">        Reference system azimuth (radians)</span>
+<span class="sd">    altitude: float</span>
+<span class="sd">        Reference system altitude (radians)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    obj_altitude,obj_azimuth: (float,float)</span>
+<span class="sd">        Absolute altitude and azimuth of the event</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">unit</span> <span class="o">=</span> <span class="n">azimuth</span><span class="o">.</span><span class="n">unit</span>
+
+    <span class="n">x_off</span> <span class="o">=</span> <span class="n">x_off</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rad</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">y_off</span> <span class="o">=</span> <span class="n">y_off</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rad</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">azimuth</span> <span class="o">=</span> <span class="n">azimuth</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rad</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">altitude</span> <span class="o">=</span> <span class="n">altitude</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rad</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x_off</span> <span class="o">*</span> <span class="n">x_off</span> <span class="o">+</span> <span class="n">y_off</span> <span class="o">*</span> <span class="n">y_off</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">offset</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># find offset 0 positions</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">offset</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-12</span>  <span class="c1"># add a very small offset to prevent math errors</span>
+
+    <span class="n">atan_off</span> <span class="o">=</span> <span class="n">arctan</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
+
+    <span class="n">sin_atan_off</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">atan_off</span><span class="p">)</span>
+    <span class="n">xp1</span> <span class="o">=</span> <span class="n">x_off</span> <span class="o">*</span> <span class="p">(</span><span class="n">sin_atan_off</span> <span class="o">/</span> <span class="n">offset</span><span class="p">)</span>
+    <span class="n">yp1</span> <span class="o">=</span> <span class="n">y_off</span> <span class="o">*</span> <span class="p">(</span><span class="n">sin_atan_off</span> <span class="o">/</span> <span class="n">offset</span><span class="p">)</span>
+    <span class="n">zp1</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">atan_off</span><span class="p">)</span>
+
+    <span class="n">sin_obj_alt</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+    <span class="n">cos_obj_alt</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+
+    <span class="n">xp0</span> <span class="o">=</span> <span class="n">sin_obj_alt</span> <span class="o">*</span> <span class="n">xp1</span> <span class="o">-</span> <span class="n">cos_obj_alt</span> <span class="o">*</span> <span class="n">zp1</span>
+    <span class="n">yp0</span> <span class="o">=</span> <span class="n">yp1</span>
+    <span class="n">zp0</span> <span class="o">=</span> <span class="n">cos_obj_alt</span> <span class="o">*</span> <span class="n">xp1</span> <span class="o">+</span> <span class="n">sin_obj_alt</span> <span class="o">*</span> <span class="n">zp1</span>
+
+    <span class="n">obj_altitude</span> <span class="o">=</span> <span class="n">arcsin</span><span class="p">(</span><span class="n">zp0</span><span class="p">)</span>
+    <span class="n">obj_azimuth</span> <span class="o">=</span> <span class="n">arctan2</span><span class="p">(</span><span class="n">yp0</span><span class="p">,</span> <span class="o">-</span><span class="n">xp0</span><span class="p">)</span> <span class="o">+</span> <span class="n">azimuth</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">obj_altitude</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">altitude</span>
+        <span class="n">obj_azimuth</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">azimuth</span>
+
+    <span class="n">obj_altitude</span> <span class="o">=</span> <span class="n">obj_altitude</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+    <span class="n">obj_azimuth</span> <span class="o">=</span> <span class="n">obj_azimuth</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+
+    <span class="c1"># if obj_azimuth.value &lt; 0.:</span>
+    <span class="c1">#    obj_azimuth += 2.*pi</span>
+    <span class="c1"># elif obj_azimuth.value &gt;= (2.*pi ):</span>
+    <span class="c1">#    obj_azimuth -= 2.*pi</span>
+
+    <span class="k">return</span> <span class="n">obj_altitude</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">unit</span><span class="p">),</span> <span class="n">obj_azimuth</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+
+
+<span class="c1"># Transformation between nominal and AltAz system</span>
+
+
+<span class="nd">@frame_transform_graph</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">FunctionTransform</span><span class="p">,</span> <span class="n">NominalFrame</span><span class="p">,</span> <span class="n">HorizonFrame</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">nominal_to_altaz</span><span class="p">(</span><span class="n">norm_coord</span><span class="p">,</span> <span class="n">altaz_coord</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transformation from nominal system to astropy AltAz system</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    norm_coord: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        nominal system</span>
+<span class="sd">    altaz_coord: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        AltAz system</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    AltAz Coordinates</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">alt_norm</span><span class="p">,</span> <span class="n">az_norm</span> <span class="o">=</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">array_direction</span><span class="o">.</span><span class="n">alt</span><span class="p">,</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">array_direction</span><span class="o">.</span><span class="n">az</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">norm_coord</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
+        <span class="n">x_off</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">x_off</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">x_off</span> <span class="o">=</span> <span class="n">x_off</span> <span class="o">*</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">unit</span>
+        <span class="n">y_off</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">y_off</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">y_off</span> <span class="o">=</span> <span class="n">y_off</span> <span class="o">*</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">unit</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x_off</span> <span class="o">=</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">x</span>
+        <span class="n">y_off</span> <span class="o">=</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="n">altitude</span><span class="p">,</span> <span class="n">azimuth</span> <span class="o">=</span> <span class="n">offset_to_altaz</span><span class="p">(</span><span class="n">x_off</span><span class="p">,</span> <span class="n">y_off</span><span class="p">,</span> <span class="n">az_norm</span><span class="p">,</span> <span class="n">alt_norm</span><span class="p">)</span>
+
+    <span class="n">representation</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="n">azimuth</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">),</span> <span class="n">lat</span><span class="o">=</span><span class="n">altitude</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">altaz_coord</span><span class="o">.</span><span class="n">realize_frame</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
+
+
+<span class="nd">@frame_transform_graph</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">FunctionTransform</span><span class="p">,</span> <span class="n">HorizonFrame</span><span class="p">,</span> <span class="n">NominalFrame</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">altaz_to_nominal</span><span class="p">(</span><span class="n">altaz_coord</span><span class="p">,</span> <span class="n">norm_coord</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transformation from astropy AltAz system to nominal system</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    altaz_coord: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        AltAz system</span>
+<span class="sd">    norm_coord: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        nominal system</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nominal Coordinates</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">alt_norm</span><span class="p">,</span> <span class="n">az_norm</span> <span class="o">=</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">array_direction</span><span class="o">.</span><span class="n">alt</span><span class="p">,</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">array_direction</span><span class="o">.</span><span class="n">az</span>
+    <span class="n">azimuth</span> <span class="o">=</span> <span class="n">altaz_coord</span><span class="o">.</span><span class="n">az</span>
+    <span class="n">altitude</span> <span class="o">=</span> <span class="n">altaz_coord</span><span class="o">.</span><span class="n">alt</span>
+    <span class="n">x_off</span><span class="p">,</span> <span class="n">y_off</span> <span class="o">=</span> <span class="n">altaz_to_offset</span><span class="p">(</span><span class="n">azimuth</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">az_norm</span><span class="p">,</span> <span class="n">alt_norm</span><span class="p">)</span>
+    <span class="n">x_off</span> <span class="o">=</span> <span class="n">x_off</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+    <span class="n">y_off</span> <span class="o">=</span> <span class="n">y_off</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+    <span class="n">representation</span> <span class="o">=</span> <span class="n">PlanarRepresentation</span><span class="p">(</span>
+        <span class="n">x_off</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">),</span> <span class="n">y_off</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">realize_frame</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
+
+
+<span class="c1"># Transformation between telescope and nominal frames</span>
+
+
+<span class="nd">@frame_transform_graph</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">FunctionTransform</span><span class="p">,</span> <span class="n">TelescopeFrame</span><span class="p">,</span> <span class="n">NominalFrame</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">telescope_to_nominal</span><span class="p">(</span><span class="n">tel_coord</span><span class="p">,</span> <span class="n">norm_frame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Coordinate transformation from telescope frame to nominal frame</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tel_coord: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        TelescopeFrame system</span>
+<span class="sd">    norm_frame: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        NominalFrame system</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    NominalFrame coordinates</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">alt_tel</span><span class="p">,</span> <span class="n">az_tel</span> <span class="o">=</span> <span class="n">tel_coord</span><span class="o">.</span><span class="n">pointing_direction</span><span class="o">.</span><span class="n">alt</span><span class="p">,</span> <span class="n">tel_coord</span><span class="o">.</span><span class="n">pointing_direction</span><span class="o">.</span><span class="n">az</span>
+    <span class="n">alt_norm</span><span class="p">,</span> <span class="n">az_norm</span> <span class="o">=</span> <span class="n">norm_frame</span><span class="o">.</span><span class="n">array_direction</span><span class="o">.</span><span class="n">alt</span><span class="p">,</span> <span class="n">norm_frame</span><span class="o">.</span><span class="n">array_direction</span><span class="o">.</span><span class="n">az</span>
+    <span class="n">alt_trans</span><span class="p">,</span> <span class="n">az_trans</span> <span class="o">=</span> <span class="n">offset_to_altaz</span><span class="p">(</span>
+        <span class="n">tel_coord</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">tel_coord</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">az_tel</span><span class="p">,</span> <span class="n">alt_tel</span><span class="p">)</span>
+
+    <span class="n">x_off</span><span class="p">,</span> <span class="n">y_off</span> <span class="o">=</span> <span class="n">altaz_to_offset</span><span class="p">(</span><span class="n">az_trans</span><span class="p">,</span> <span class="n">alt_trans</span><span class="p">,</span> <span class="n">az_norm</span><span class="p">,</span> <span class="n">alt_norm</span><span class="p">)</span>
+    <span class="n">x_off</span> <span class="o">=</span> <span class="n">x_off</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+    <span class="n">y_off</span> <span class="o">=</span> <span class="n">y_off</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+
+    <span class="n">representation</span> <span class="o">=</span> <span class="n">PlanarRepresentation</span><span class="p">(</span>
+        <span class="n">x_off</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">tel_coord</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">unit</span><span class="p">),</span> <span class="n">y_off</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">tel_coord</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">unit</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">norm_frame</span><span class="o">.</span><span class="n">realize_frame</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
+
+
+<span class="nd">@frame_transform_graph</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">FunctionTransform</span><span class="p">,</span> <span class="n">NominalFrame</span><span class="p">,</span> <span class="n">TelescopeFrame</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">nominal_to_telescope</span><span class="p">(</span><span class="n">norm_coord</span><span class="p">,</span> <span class="n">tel_frame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Coordinate transformation from nominal to telescope system</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    norm_coord: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        NominalFrame system</span>
+<span class="sd">    tel_frame: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        TelescopeFrame system</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TelescopeFrame coordinates</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">alt_tel</span><span class="p">,</span> <span class="n">az_tel</span> <span class="o">=</span> <span class="n">tel_frame</span><span class="o">.</span><span class="n">pointing_direction</span><span class="o">.</span><span class="n">alt</span><span class="p">,</span> <span class="n">tel_frame</span><span class="o">.</span><span class="n">pointing_direction</span><span class="o">.</span><span class="n">az</span>
+    <span class="n">alt_norm</span><span class="p">,</span> <span class="n">az_norm</span> <span class="o">=</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">array_direction</span><span class="o">.</span><span class="n">alt</span><span class="p">,</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">array_direction</span><span class="o">.</span><span class="n">az</span>
+
+    <span class="n">alt_trans</span><span class="p">,</span> <span class="n">az_trans</span> <span class="o">=</span> <span class="n">offset_to_altaz</span><span class="p">(</span>
+        <span class="n">norm_coord</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">norm_coord</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">az_norm</span><span class="p">,</span> <span class="n">alt_norm</span><span class="p">)</span>
+    <span class="n">x_off</span><span class="p">,</span> <span class="n">y_off</span> <span class="o">=</span> <span class="n">altaz_to_offset</span><span class="p">(</span><span class="n">az_trans</span><span class="p">,</span> <span class="n">alt_trans</span><span class="p">,</span> <span class="n">az_tel</span><span class="p">,</span> <span class="n">alt_tel</span><span class="p">)</span>
+    <span class="n">x_off</span> <span class="o">=</span> <span class="n">x_off</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+    <span class="n">y_off</span> <span class="o">=</span> <span class="n">y_off</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+
+    <span class="n">representation</span> <span class="o">=</span> <span class="n">PlanarRepresentation</span><span class="p">(</span><span class="n">x_off</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">norm_coord</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">unit</span><span class="p">),</span> <span class="n">y_off</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">norm_coord</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">unit</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">tel_frame</span><span class="o">.</span><span class="n">realize_frame</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
+
+
+<span class="c1"># Transformations between camera frame and telescope frame</span>
+<span class="nd">@frame_transform_graph</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">FunctionTransform</span><span class="p">,</span> <span class="n">CameraFrame</span><span class="p">,</span> <span class="n">TelescopeFrame</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">camera_to_telescope</span><span class="p">(</span><span class="n">camera_coord</span><span class="p">,</span> <span class="n">telescope_frame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transformation between CameraFrame and TelescopeFrame</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    camera_coord: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        CameraFrame system</span>
+<span class="sd">    telescope_frame: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        TelescopeFrame system</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TelescopeFrame coordinate</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x_pos</span> <span class="o">=</span> <span class="n">camera_coord</span><span class="o">.</span><span class="n">cartesian</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">y_pos</span> <span class="o">=</span> <span class="n">camera_coord</span><span class="o">.</span><span class="n">cartesian</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="n">rot</span> <span class="o">=</span> <span class="n">camera_coord</span><span class="o">.</span><span class="n">rotation</span>
+    <span class="k">if</span> <span class="n">rot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x_rotated</span> <span class="o">=</span> <span class="n">x_pos</span>
+        <span class="n">y_rotated</span> <span class="o">=</span> <span class="n">y_pos</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x_rotated</span> <span class="o">=</span> <span class="n">x_pos</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_pos</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+        <span class="n">y_rotated</span> <span class="o">=</span> <span class="n">x_pos</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span> <span class="o">+</span> <span class="n">y_pos</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+
+    <span class="n">focal_length</span> <span class="o">=</span> <span class="n">camera_coord</span><span class="o">.</span><span class="n">focal_length</span>
+
+    <span class="n">x_rotated</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_rotated</span> <span class="o">/</span> <span class="n">focal_length</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+    <span class="n">y_rotated</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_rotated</span> <span class="o">/</span> <span class="n">focal_length</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+    <span class="n">representation</span> <span class="o">=</span> <span class="n">PlanarRepresentation</span><span class="p">(</span><span class="n">x_rotated</span><span class="p">,</span> <span class="n">y_rotated</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">telescope_frame</span><span class="o">.</span><span class="n">realize_frame</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
+
+
+<span class="nd">@frame_transform_graph</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">FunctionTransform</span><span class="p">,</span> <span class="n">TelescopeFrame</span><span class="p">,</span> <span class="n">CameraFrame</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">telescope_to_camera</span><span class="p">(</span><span class="n">telescope_coord</span><span class="p">,</span> <span class="n">camera_frame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transformation between TelescopeFrame and CameraFrame</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    telescope_coord: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        TelescopeFrame system</span>
+<span class="sd">    camera_frame: `astropy.coordinates.SkyCoord`</span>
+<span class="sd">        CameraFrame system</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CameraFrame Coordinates</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x_pos</span> <span class="o">=</span> <span class="n">telescope_coord</span><span class="o">.</span><span class="n">cartesian</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">y_pos</span> <span class="o">=</span> <span class="n">telescope_coord</span><span class="o">.</span><span class="n">cartesian</span><span class="o">.</span><span class="n">y</span>
+    <span class="c1"># reverse the rotation applied to get to this system</span>
+    <span class="n">rot</span> <span class="o">=</span> <span class="n">camera_frame</span><span class="o">.</span><span class="n">rotation</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">rot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if no rotation applied save a few cycles</span>
+        <span class="n">x_rotated</span> <span class="o">=</span> <span class="n">x_pos</span>
+        <span class="n">y_rotated</span> <span class="o">=</span> <span class="n">y_pos</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># or else rotate all positions around the camera centre</span>
+        <span class="n">x_rotated</span> <span class="o">=</span> <span class="n">x_pos</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_pos</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+        <span class="n">y_rotated</span> <span class="o">=</span> <span class="n">x_pos</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span> <span class="o">+</span> <span class="n">y_pos</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
+
+    <span class="n">focal_length</span> <span class="o">=</span> <span class="n">camera_frame</span><span class="o">.</span><span class="n">focal_length</span>
+    <span class="c1"># Remove distance units here as we are using small angle approx</span>
+    <span class="n">x_rotated</span> <span class="o">=</span> <span class="n">x_rotated</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rad</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">focal_length</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">y_rotated</span> <span class="o">=</span> <span class="n">y_rotated</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rad</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">focal_length</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="n">representation</span> <span class="o">=</span> <span class="n">CartesianRepresentation</span><span class="p">(</span>
+        <span class="n">x_rotated</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">y_rotated</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">camera_frame</span><span class="o">.</span><span class="n">realize_frame</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

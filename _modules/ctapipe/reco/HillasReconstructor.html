@@ -1,0 +1,780 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ctapipe.reco.HillasReconstructor &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ctapipe.reco.HillasReconstructor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ctapipe.reco.HillasReconstructor</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Line-intersection-based fitting.</span>
+
+<span class="sd">Contact: Tino Michael &lt;Tino.Michael@cea.fr&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">from</span> <span class="nn">ctapipe.utils</span> <span class="k">import</span> <span class="n">linalg</span>
+<span class="kn">from</span> <span class="nn">ctapipe.coordinates</span> <span class="k">import</span> <span class="n">coordinate_transformations</span> <span class="k">as</span> <span class="n">trafo</span>
+<span class="kn">from</span> <span class="nn">ctapipe.reco.reco_algorithms</span> <span class="k">import</span> <span class="n">Reconstructor</span>
+<span class="kn">from</span> <span class="nn">ctapipe.io.containers</span> <span class="k">import</span> <span class="n">ReconstructedShowerContainer</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">combinations</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">minimize</span>
+
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="k">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="n">u</span><span class="o">.</span><span class="n">dimless</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">dimensionless_unscaled</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HillasReconstructor&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;TooFewTelescopes&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;dist_to_traces&#39;</span><span class="p">,</span> <span class="s1">&#39;MEst&#39;</span><span class="p">,</span> <span class="s1">&#39;GreatCircle&#39;</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">TooFewTelescopes</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">dist_to_traces</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">circles</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function calculates the M-Estimator from the distances of the</span>
+<span class="sd">    suggested core position to all traces of the given GreatCircles.</span>
+<span class="sd">    The distance of the core to the trace line is the length of the</span>
+<span class="sd">    vector between the core and an arbitrary point on the trace</span>
+<span class="sd">    projected perpendicular to the trace.</span>
+
+<span class="sd">    This is implemented as the scalar product of the connecting vector</span>
+<span class="sd">    between the core and the position of the telescope and { trace[1],</span>
+<span class="sd">    -trace[0] } as the normal vector of the trace.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    uses the M-Estimator of the distance instead of the distance itself:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        M_\\text{Est} = \sum_i{ 2 \cdot \sqrt{1 + d_i^2} - 2}</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">mest</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="k">for</span> <span class="n">circle</span> <span class="ow">in</span> <span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+
+        <span class="c1"># the distanece of the core</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">core</span> <span class="o">-</span> <span class="n">circle</span><span class="o">.</span><span class="n">pos</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">trace</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">trace</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># summing up the M-Estimator with the given circle weights</span>
+        <span class="n">mest</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">dist</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">weight</span>
+    <span class="k">return</span> <span class="n">mest</span>
+
+
+<span class="k">def</span> <span class="nf">MEst</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">circles</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;calculates the M-Estimator: a modified χ² that becomes</span>
+<span class="sd">    asymptotically linear for high values and is therefore less</span>
+<span class="sd">    sensitive to outliers</span>
+
+<span class="sd">    the test is performed to maximise the angles between the fit</span>
+<span class="sd">    direction and the all the normal vectors of the great circles</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        M_\\text{Est} = \sum_i{ 2 \cdot \sqrt{1 + d_i^2} - 2}</span>
+
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    seemingly inferior to negative sum of sin(angle)...</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    origin : length-3 array</span>
+<span class="sd">        direction vector of the gamma&#39;s origin used as seed</span>
+<span class="sd">    circles : GreatCircle array</span>
+<span class="sd">        collection of great circles created from the camera images</span>
+<span class="sd">    weights : array</span>
+<span class="sd">        list of weights for each image/great circle</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    MEstimator : float</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sin_ang</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">linalg</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">circ</span><span class="o">.</span><span class="n">norm</span><span class="p">))</span>
+                        <span class="k">for</span> <span class="n">circ</span> <span class="ow">in</span> <span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">sin_ang</span><span class="p">)))</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">neg_angle_sum</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">circles</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;calculates the negative sum of the angle between the fit direction</span>
+<span class="sd">    and all the normal vectors of the great circles</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    origin : length-3 array</span>
+<span class="sd">        direction vector of the gamma&#39;s origin used as seed</span>
+<span class="sd">    circles : GreatCircle array</span>
+<span class="sd">        collection of great circles created from the camera images</span>
+<span class="sd">    weights : array</span>
+<span class="sd">        list of weights for each image/great circle</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    n_sum_angles : float</span>
+<span class="sd">        negative of the sum of the angles between the test direction</span>
+<span class="sd">        and all normal vectors of the given great circles</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sin_ang</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">linalg</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">circ</span><span class="o">.</span><span class="n">norm</span><span class="p">))</span>
+                        <span class="k">for</span> <span class="n">circ</span> <span class="ow">in</span> <span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span> <span class="o">*</span> <span class="n">sin_ang</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="HillasReconstructor"><a class="viewcode-back" href="../../../api/ctapipe.reco.HillasReconstructor.html#ctapipe.reco.HillasReconstructor">[docs]</a><span class="k">class</span> <span class="nc">HillasReconstructor</span><span class="p">(</span><span class="n">Reconstructor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    class that reconstructs the direction of an atmospheric shower</span>
+<span class="sd">    using a simple hillas parametrisation of the camera images it</span>
+<span class="sd">    provides a direction estimate in two steps and an estimate for the</span>
+<span class="sd">    shower&#39;s impact position on the ground.</span>
+
+<span class="sd">    so far, it does neither provide an energy estimator nor an</span>
+<span class="sd">    uncertainty on the reconstructed parameters</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tool</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">tool</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circles</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="HillasReconstructor.predict"><a class="viewcode-back" href="../../../api/ctapipe.reco.HillasReconstructor.html#ctapipe.reco.HillasReconstructor.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hillas_dict</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">tel_phi</span><span class="p">,</span> <span class="n">tel_theta</span><span class="p">,</span> <span class="n">seed_pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+        <span class="sd">&quot;&quot;&quot;The function you want to call for the reconstruction of the</span>
+<span class="sd">        event. It takes care of setting up the event and consecutively</span>
+<span class="sd">        calls the functions for the direction and core position</span>
+<span class="sd">        reconstruction.  Shower parameters not reconstructed by this</span>
+<span class="sd">        class are set to np.nan</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        hillas_dict : python dictionary</span>
+<span class="sd">            dictionary with telescope IDs as key and</span>
+<span class="sd">            MomentParameters instances as values</span>
+<span class="sd">        inst : ctapipe.io.InstrumentContainer</span>
+<span class="sd">            instrumental description</span>
+<span class="sd">        tel_phi:</span>
+<span class="sd">        tel_theta:</span>
+<span class="sd">        seed_pos : python tuple</span>
+<span class="sd">            shape (2) tuple with a possible seed for</span>
+<span class="sd">            the core position fit (e.g. CoG of all telescope images)</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TooFewTelescopesException</span>
+<span class="sd">            if len(hillas_dict) &lt; 2</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># stereoscopy needs at least two telescopes</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hillas_dict</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TooFewTelescopesException</span><span class="p">(</span>
+                <span class="s2">&quot;need at least two telescopes, have </span><span class="si">{}</span><span class="s2">&quot;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hillas_dict</span><span class="p">)))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_great_circles</span><span class="p">(</span><span class="n">hillas_dict</span><span class="p">,</span> <span class="n">inst</span><span class="o">.</span><span class="n">subarray</span><span class="p">,</span> <span class="n">tel_phi</span><span class="p">,</span> <span class="n">tel_theta</span><span class="p">)</span>
+
+        <span class="c1"># algebraic direction estimate</span>
+        <span class="n">direction</span><span class="p">,</span> <span class="n">err_est_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_origin_crosses</span><span class="p">()</span>
+
+        <span class="c1"># core position estimate using a geometric approach</span>
+        <span class="n">pos</span><span class="p">,</span> <span class="n">err_est_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_core_crosses</span><span class="p">()</span>
+
+        <span class="c1"># numerical minimisations do not really improve the fit</span>
+        <span class="c1"># direction estimate using numerical minimisation</span>
+        <span class="c1"># dir = self.fit_origin_minimise(dir)</span>
+        <span class="c1">#</span>
+        <span class="c1"># core position estimate using numerical minimisation</span>
+        <span class="c1"># pos = self.fit_core_minimise(seed_pos)</span>
+
+        <span class="c1"># container class for reconstructed showers</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">ReconstructedShowerContainer</span><span class="p">()</span>
+        <span class="n">phi</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">get_phi_theta</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+
+        <span class="c1"># TODO fix coordinates!</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">alt</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">az</span> <span class="o">=</span> <span class="mi">90</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span> <span class="o">-</span> <span class="n">theta</span><span class="p">,</span> <span class="o">-</span><span class="n">phi</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">core_x</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">core_y</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">core_uncert</span> <span class="o">=</span> <span class="n">err_est_pos</span>
+
+        <span class="n">result</span><span class="o">.</span><span class="n">tel_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hillas_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">average_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">h</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hillas_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">is_valid</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">result</span><span class="o">.</span><span class="n">alt_uncert</span> <span class="o">=</span> <span class="n">err_est_dir</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">az_uncert</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">h_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_h_max</span><span class="p">(</span><span class="n">hillas_dict</span><span class="p">,</span> <span class="n">inst</span><span class="o">.</span><span class="n">subarray</span><span class="p">,</span> <span class="n">tel_phi</span><span class="p">,</span> <span class="n">tel_theta</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">h_max_uncert</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">goodness_of_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="HillasReconstructor.get_great_circles"><a class="viewcode-back" href="../../../api/ctapipe.reco.HillasReconstructor.html#ctapipe.reco.HillasReconstructor.get_great_circles">[docs]</a>    <span class="k">def</span> <span class="nf">get_great_circles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hillas_dict</span><span class="p">,</span> <span class="n">subarray</span><span class="p">,</span> <span class="n">tel_phi</span><span class="p">,</span> <span class="n">tel_theta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        creates a dictionary of :class:`.GreatCircle` from a dictionary of</span>
+<span class="sd">        hillas</span>
+<span class="sd">        parameters</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        hillas_dict : dictionary</span>
+<span class="sd">            dictionary of hillas moments</span>
+<span class="sd">        subarray : ctapipe.instrument.SubarrayDescription</span>
+<span class="sd">            subarray information</span>
+<span class="sd">        tel_phi, tel_theta : dictionaries</span>
+<span class="sd">            dictionaries of the orientation angles of the telescopes</span>
+<span class="sd">            needs to contain at least the same keys as in `hillas_dict`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">circles</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">tel_id</span><span class="p">,</span> <span class="n">moments</span> <span class="ow">in</span> <span class="n">hillas_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="c1"># NOTE this is correct: +cos(psi) ; +sin(psi)</span>
+            <span class="n">p2_x</span> <span class="o">=</span> <span class="n">moments</span><span class="o">.</span><span class="n">cen_x</span> <span class="o">+</span> <span class="n">moments</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">moments</span><span class="o">.</span><span class="n">psi</span><span class="p">)</span>
+            <span class="n">p2_y</span> <span class="o">=</span> <span class="n">moments</span><span class="o">.</span><span class="n">cen_y</span> <span class="o">+</span> <span class="n">moments</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">moments</span><span class="o">.</span><span class="n">psi</span><span class="p">)</span>
+            <span class="n">foclen</span> <span class="o">=</span> <span class="n">subarray</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="n">tel_id</span><span class="p">]</span><span class="o">.</span><span class="n">optics</span><span class="o">.</span><span class="n">equivalent_focal_length</span>
+
+            <span class="n">circle</span> <span class="o">=</span> <span class="n">GreatCircle</span><span class="p">(</span>
+                <span class="n">trafo</span><span class="o">.</span><span class="n">pixel_position_to_direction</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">moments</span><span class="o">.</span><span class="n">cen_x</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">p2_x</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">moments</span><span class="o">.</span><span class="n">cen_y</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">p2_y</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
+                    <span class="n">tel_phi</span><span class="p">[</span><span class="n">tel_id</span><span class="p">],</span> <span class="n">tel_theta</span><span class="p">[</span><span class="n">tel_id</span><span class="p">],</span> <span class="n">foclen</span><span class="p">),</span>
+                <span class="n">moments</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="p">(</span><span class="n">moments</span><span class="o">.</span><span class="n">length</span> <span class="o">/</span> <span class="n">moments</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">circle</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">subarray</span><span class="o">.</span><span class="n">positions</span><span class="p">[</span><span class="n">tel_id</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="p">[</span><span class="n">tel_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">circle</span></div>
+
+<div class="viewcode-block" id="HillasReconstructor.fit_origin_crosses"><a class="viewcode-back" href="../../../api/ctapipe.reco.HillasReconstructor.html#ctapipe.reco.HillasReconstructor.fit_origin_crosses">[docs]</a>    <span class="k">def</span> <span class="nf">fit_origin_crosses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;calculates the origin of the gamma as the weighted average</span>
+<span class="sd">        direction of the intersections of all great circles</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        gamma : shape (3) numpy array</span>
+<span class="sd">            direction of origin of the reconstructed shower as a 3D vector</span>
+<span class="sd">        crossings : shape (n,3) list</span>
+<span class="sd">            list of all the crossings of the `GreatCircle` list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">crossings</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">perm</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span> <span class="n">perm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">norm</span>
+            <span class="c1"># cross product automatically weighs in the angle between</span>
+            <span class="c1"># the two vectors: narrower angles have less impact,</span>
+            <span class="c1"># perpendicular vectors have the most</span>
+            <span class="n">crossing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+
+            <span class="c1"># two great circles cross each other twice (one would be</span>
+            <span class="c1"># the origin, the other one the direction of the gamma) it</span>
+            <span class="c1"># doesn&#39;t matter which we pick but it should at least be</span>
+            <span class="c1"># consistent: make sure to always take the &quot;upper&quot; solution</span>
+            <span class="k">if</span> <span class="n">crossing</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">crossing</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">crossings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">crossing</span> <span class="o">*</span> <span class="n">perm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">perm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">normalise</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">crossings</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">dimless</span>
+        <span class="n">off_angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">linalg</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">cross</span><span class="p">)</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span> <span class="k">for</span> <span class="n">cross</span> <span class="ow">in</span> <span class="n">crossings</span><span class="p">]</span>
+        <span class="n">err_est_dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span>
+            <span class="n">off_angles</span><span class="p">,</span>
+            <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">cross</span><span class="p">)</span> <span class="k">for</span> <span class="n">cross</span> <span class="ow">in</span> <span class="n">crossings</span><span class="p">]</span>
+        <span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">rad</span>
+
+        <span class="c1"># averaging over the solutions of all permutations</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">err_est_dir</span></div>
+
+<div class="viewcode-block" id="HillasReconstructor.fit_origin_minimise"><a class="viewcode-back" href="../../../api/ctapipe.reco.HillasReconstructor.html#ctapipe.reco.HillasReconstructor.fit_origin_minimise">[docs]</a>    <span class="k">def</span> <span class="nf">fit_origin_minimise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">test_function</span><span class="o">=</span><span class="n">neg_angle_sum</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Fits the origin of the gamma with a minimisation procedure this</span>
+<span class="sd">        function expects that `get_great_circles`</span>
+<span class="sd">        has been run already. A seed should be given otherwise it defaults to</span>
+<span class="sd">        &quot;straight up&quot; supperted functions to minimise are an M-estimator and the</span>
+<span class="sd">        negative sum of the angles to all normal vectors of the great</span>
+<span class="sd">        circles</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        seed : length-3 array</span>
+<span class="sd">            starting point of the minimisation</span>
+<span class="sd">        test_function : function object, optional (default: neg_angle_sum)</span>
+<span class="sd">            either neg_angle_sum or MEst (or own implementation...)</span>
+<span class="sd">            neg_angle_sum seemingly superior to MEst</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        direction : length-3 numpy array as dimensionless quantity</span>
+<span class="sd">            best fit for the origin of the gamma from</span>
+<span class="sd">            the minimisation process</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># using the sum of the cosines of each direction with every</span>
+        <span class="c1"># other direction as weight; don&#39;t use the product -- with many</span>
+        <span class="c1"># steep angles, the product will become too small and the</span>
+        <span class="c1"># weight (and the whole fit) useless</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">linalg</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">norm</span><span class="p">))</span>
+                           <span class="k">for</span> <span class="n">A</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+                          <span class="p">)</span> <span class="o">*</span> <span class="n">B</span><span class="o">.</span><span class="n">weight</span>
+                   <span class="k">for</span> <span class="n">B</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+
+        <span class="c1"># minimising the test function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_result_origin</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">test_function</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span>
+                                          <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="p">,</span> <span class="n">weights</span><span class="p">),</span>
+                                          <span class="n">method</span><span class="o">=</span><span class="s1">&#39;BFGS&#39;</span><span class="p">,</span>
+                                          <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;disp&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+                                          <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">normalise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fit_result_origin</span><span class="o">.</span><span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">dimless</span></div>
+
+<div class="viewcode-block" id="HillasReconstructor.fit_core_crosses"><a class="viewcode-back" href="../../../api/ctapipe.reco.HillasReconstructor.html#ctapipe.reco.HillasReconstructor.fit_core_crosses">[docs]</a>    <span class="k">def</span> <span class="nf">fit_core_crosses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;calculates the core position as the least linear square solution</span>
+<span class="sd">        of an (over-constrained) equation system</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The basis is the &quot;trace&quot; of each telescope&#39;s `GreatCircle` which</span>
+<span class="sd">        can be determined by the telescope&#39;s position P=(Px, Py) and</span>
+<span class="sd">        the circle&#39;s normal vector, projected to the ground n=(nx,</span>
+<span class="sd">        ny), so that for every r=(x, y) on the trace</span>
+
+<span class="sd">        :math:`\vec n \cdot \vec r = \vec n \cdot \vec P` ,</span>
+
+<span class="sd">        :math:`n_x \cdot x + n_y \cdot y = d`</span>
+
+<span class="sd">        In a perfect world, the traces of all telescopes cross in the</span>
+<span class="sd">        shower&#39;s point of impact. This means that there is one common</span>
+<span class="sd">        point (x, y) for every telescope, so we can write in matrix</span>
+<span class="sd">        form:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            :label: fullmatrix</span>
+
+<span class="sd">            \begin{pmatrix}</span>
+<span class="sd">                nx_1  &amp;  ny_1  \\</span>
+<span class="sd">                \vdots &amp; \vdots \\</span>
+<span class="sd">                nx_n  &amp;  ny_n</span>
+<span class="sd">            \end{pmatrix}</span>
+<span class="sd">                \cdot (x, y) =</span>
+<span class="sd">            \begin{pmatrix}</span>
+<span class="sd">                d_1  \\</span>
+<span class="sd">                \vdots \\</span>
+<span class="sd">                d_n</span>
+<span class="sd">            \end{pmatrix}</span>
+
+
+
+<span class="sd">        or :math:`\boldsymbol{A} \cdot \vec r = \vec D` .</span>
+
+<span class="sd">        Since we do not live in a perfect world and there probably is</span>
+<span class="sd">        no point r that fulfils this equation system, it is solved by</span>
+<span class="sd">        the method of least linear square:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            :label: rchisqr</span>
+
+<span class="sd">            \vec{r}_{\chi^2} = (\boldsymbol{A}^\text{T} \cdot \boldsymbol{A})^{-1}</span>
+<span class="sd">            \boldsymbol{A}^\text{T} \cdot \vec D</span>
+
+
+<span class="sd">        :math:`\vec{r}_{\chi^2}` minimises the squared difference of</span>
+
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \vec D - \boldsymbol{A} \cdot \vec r</span>
+
+
+<span class="sd">        Weights are applied to every line of equation :eq:`fullmatrix`</span>
+<span class="sd">        as stored in circle.weight (assuming they have been set in</span>
+<span class="sd">        `get_great_circles` or elsewhere).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        r_chisqr: numpy.ndarray(2)</span>
+<span class="sd">            the minimum :math:`\chi^2` solution for the shower impact position</span>
+<span class="sd">        pos_uncert: astropy length quantity</span>
+<span class="sd">            error estimate on the reconstructed core position</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">circle</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="c1"># apply weight from circle and from the tilt of the circle</span>
+            <span class="c1"># towards the horizontal plane: simply projecting</span>
+            <span class="c1"># circle.norm to the ground gives higher weight to planes</span>
+            <span class="c1"># perpendicular to the ground and less to those that have</span>
+            <span class="c1"># a steeper angle</span>
+            <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">circle</span><span class="o">.</span><span class="n">norm</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="c1"># since A[i] is used in the dot-product, no need to multiply the</span>
+            <span class="c1"># weight here</span>
+            <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">circle</span><span class="o">.</span><span class="n">pos</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="c1"># the math from equation (2) would look like this:</span>
+        <span class="c1"># ATA = np.dot(A.T, A)</span>
+        <span class="c1"># ATAinv = np.linalg.inv(ATA)</span>
+        <span class="c1"># ATAinvAT = np.dot(ATAinv, A.T)</span>
+        <span class="c1"># return np.dot(ATAinvAT, D) * unit</span>
+
+        <span class="c1"># instead used directly the numpy implementation</span>
+        <span class="c1"># speed is the same, just handles already &quot;SingularMatrixError&quot;</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span>
+
+        <span class="n">weighted_sum_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pos</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">c</span><span class="o">.</span><span class="n">pos</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="o">.</span><span class="n">norm</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">weight</span>
+                                    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span> <span class="o">*</span> <span class="n">pos</span><span class="o">.</span><span class="n">unit</span>
+        <span class="n">norm_sum_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">linalg</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">norm</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+                                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+        <span class="n">pos_uncert</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">weighted_sum_dist</span> <span class="o">/</span> <span class="n">norm_sum_dist</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">pos</span><span class="p">,</span> <span class="n">pos_uncert</span></div>
+
+<div class="viewcode-block" id="HillasReconstructor.fit_core_minimise"><a class="viewcode-back" href="../../../api/ctapipe.reco.HillasReconstructor.html#ctapipe.reco.HillasReconstructor.fit_core_minimise">[docs]</a>    <span class="k">def</span> <span class="nf">fit_core_minimise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">test_function</span><span class="o">=</span><span class="n">dist_to_traces</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        reconstructs the shower core position from the already set up</span>
+<span class="sd">        great circles</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The core of the shower lies on the cross section of the great</span>
+<span class="sd">        circle with the horizontal plane. The direction of this cross</span>
+<span class="sd">        section is the cross-product of the circle&#39;s normal vector and</span>
+<span class="sd">        the horizontal plane.  Here, we only care about the direction;</span>
+<span class="sd">        not the orientation...</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        seed : tuple</span>
+<span class="sd">            shape (2) tuple with optional starting coordinates</span>
+<span class="sd">            tuple of floats or astropy.length -- if floats, assume metres</span>
+<span class="sd">        test_function : function object, optional (default: dist_to_traces)</span>
+<span class="sd">            function to be used by the minimiser</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">:</span>
+            <span class="n">unit</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">unit</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">unit</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span>
+
+        <span class="c1"># the direction of the cross section of the great circle with</span>
+        <span class="c1"># the horizontal frame is the cross product of the great</span>
+        <span class="c1"># circle&#39;s normal vector with the z-axis:</span>
+        <span class="c1"># n × z = (n[1], -n[0], 0)</span>
+        <span class="k">for</span> <span class="n">circle</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">circle</span><span class="o">.</span><span class="n">trace</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">normalise</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">circle</span><span class="o">.</span><span class="n">norm</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                      <span class="o">-</span><span class="n">circle</span><span class="o">.</span><span class="n">norm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">]))</span>
+
+        <span class="c1"># minimising the test function (note: minimize strips seed off its</span>
+        <span class="c1"># unit)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_result_core</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">test_function</span><span class="p">,</span> <span class="n">seed</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span>
+                                        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="p">),</span>
+                                        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;BFGS&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;disp&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_result_core</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fit_core: fit no success&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fit_result_core</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">unit</span></div>
+
+<div class="viewcode-block" id="HillasReconstructor.fit_h_max"><a class="viewcode-back" href="../../../api/ctapipe.reco.HillasReconstructor.html#ctapipe.reco.HillasReconstructor.fit_h_max">[docs]</a>    <span class="k">def</span> <span class="nf">fit_h_max</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hillas_dict</span><span class="p">,</span> <span class="n">subarray</span><span class="p">,</span> <span class="n">tel_phi</span><span class="p">,</span> <span class="n">tel_theta</span><span class="p">):</span>
+
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dirs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">tel_id</span><span class="p">,</span> <span class="n">hillas</span> <span class="ow">in</span> <span class="n">hillas_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">foclen</span> <span class="o">=</span> <span class="n">subarray</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="n">tel_id</span><span class="p">]</span><span class="o">.</span><span class="n">optics</span><span class="o">.</span><span class="n">equivalent_focal_length</span>
+            <span class="n">max_dir</span><span class="p">,</span> <span class="o">=</span> <span class="n">trafo</span><span class="o">.</span><span class="n">pixel_position_to_direction</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">hillas</span><span class="o">.</span><span class="n">cen_x</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">hillas</span><span class="o">.</span><span class="n">cen_y</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">,</span>
+                <span class="n">tel_phi</span><span class="p">[</span><span class="n">tel_id</span><span class="p">],</span> <span class="n">tel_theta</span><span class="p">[</span><span class="n">tel_id</span><span class="p">],</span> <span class="n">foclen</span><span class="p">)</span>
+            <span class="n">weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="p">[</span><span class="n">tel_id</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+            <span class="n">tels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">circles</span><span class="p">[</span><span class="n">tel_id</span><span class="p">]</span><span class="o">.</span><span class="n">pos</span><span class="p">)</span>
+            <span class="n">dirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_dir</span><span class="p">)</span>
+
+        <span class="c1"># minimising the test function</span>
+        <span class="n">pos_max</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">dist_to_line3d</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]),</span>
+                           <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tels</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dirs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weights</span><span class="p">)),</span>
+                           <span class="n">method</span><span class="o">=</span><span class="s1">&#39;BFGS&#39;</span><span class="p">,</span>
+                           <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;disp&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+                           <span class="p">)</span><span class="o">.</span><span class="n">x</span>
+        <span class="k">return</span> <span class="n">pos_max</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">dist_to_line3d</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">tels</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">((</span><span class="n">pos</span> <span class="o">-</span> <span class="n">tels</span><span class="p">),</span> <span class="n">dirs</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                        <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">class</span> <span class="nc">GreatCircle</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    a tiny helper class to collect some parameters for each great great</span>
+<span class="sd">    circle</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;the constructor takes two directions on the circle and creates the</span>
+<span class="sd">        normal vector belonging to that plane</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        dirs : shape (2,3) ndarray</span>
+<span class="sd">            contains two 3D direction-vectors</span>
+<span class="sd">        weight : float, optional</span>
+<span class="sd">            weight of this telescope for later use during the</span>
+<span class="sd">            reconstruction</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        c: numpy.ndarray(3)</span>
+<span class="sd">            :math:`\vec c = (\vec a \times \vec b) \times \vec a`</span>
+<span class="sd">            :math:`\rightarrow` a and c form an orthogonal base for the</span>
+<span class="sd">            great circle</span>
+<span class="sd">            (only orthonormal if a and b are of unit-length)</span>
+<span class="sd">        norm: numpy.ndarray(3)</span>
+<span class="sd">            normal vector of the circle&#39;s plane,</span>
+<span class="sd">            perpendicular to a, b and c</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">dirs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">dirs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># a and c form an orthogonal basis for the great circle</span>
+        <span class="c1"># not really necessary since the norm can be calculated</span>
+        <span class="c1"># with a and b just as well</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+        <span class="c1"># normal vector for the plane defined by the great circle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">normalise</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">))</span>
+        <span class="c1"># some weight for this circle</span>
+        <span class="c1"># (put e.g. uncertainty on the Hillas parameters</span>
+        <span class="c1"># or number of PE in here)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

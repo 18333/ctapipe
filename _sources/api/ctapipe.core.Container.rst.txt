@@ -1,0 +1,17 @@
+Container
+=========
+
+.. currentmodule:: ctapipe.core
+
+.. autoclass:: Container
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~Container.meta
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta

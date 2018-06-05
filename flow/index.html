@@ -1,0 +1,642 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flow-based framework (flow) &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Imaging (image)" href="../image/index.html" />
+    <link rel="prev" title="ToolConfigurationError" href="../api/ctapipe.core.ToolConfigurationError.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zmq-library-installation">ZMQ library installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flow-based-framework-configuration">flow based framework configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mandatories-configuration-entries">Mandatories configuration entries:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-configuration-per-step">Mandatory configuration per step</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#optional-entry-per-step">Optional entry per step</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-option-for-step">User option for step</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#json-example">json example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#steps-implementation">Steps implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#producer-run-method">Producer run method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stager-run-method">Stager run method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consumer-run-method">Consumer run method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-message-with-several-next-steps">Send message with several next steps.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-ctapipe-flow">Running the ctapipe-flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#execution-examples">Execution examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flow-based-framework-end">flow based framework end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graphical-representation">Graphical representation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#optional-packages-for-gui">Optional packages for GUI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyqt4-installation">PyQt4 installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graphviz-installation">graphviz installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#foreseen-improvement">Foreseen improvement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#on-demand-recomputing">On demand recomputing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-data-in-shared-memory-memmaping">Working  data in shared memory (memmaping)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#muliple-flow-based-framework-management-by-gui">Muliple flow based framework management by GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#issues">Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#json-configuration-example">json configuration example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#producer-example">Producer example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stager-example">Stager example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consumer-example">Consumer example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/flow/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flow-based-framework-flow">
+<span id="flow"></span><h1>Flow-based framework (<code class="xref py py-obj docutils literal notranslate"><span class="pre">flow</span></code>)<a class="headerlink" href="#flow-based-framework-flow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctapipe.flow</span></code>
+is a Python implementation of the flow-based programming paradigm.
+In flow-based programming, applications are defined as networks of black-box components
+that exchange data across predefined connections.
+These components can be reconnected to form different applications.
+ctapipe-flow executes ctapipe processing modules in a sequantial or multiprocess environment.
+User implements steps in Python class.</p>
+<p>The multiprocess mode is based on ZeroMQ library (<a class="reference external" href="http:queue//zeromq.org">http:queue//zeromq.org</a>) for messages passing between process.
+ZMQ library allows to stay away from class concurrency mechanisms like mutexes,
+critical sections semaphores, while being thread safe.
+Passing data between steps is managed by the router thanks to Pickle serialization.
+A Step can be executed by several process, in this case the router uses LRU pattern (least recently used ) to
+choose the step that will receive next data. The router also manage Queue for each step.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../_images/pipeline.png"><img alt="flow based framework  example" src="../_images/pipeline.png" style="width: 419.29999999999995px; height: 438.9px;" /></a>
+<p class="caption"><span class="caption-text">python ctapipe/flow/gui/guiflow.py  application. It displays a complete flow based framework  instance containing:
+A producer step (SimTelArrayReader) that reads events in a SimTelArray MC file and sends them one by one to next step.
+A stager step (ShuntTelescope) that receives event and guides it to the next step according to it type (LST or other)
+A stager step (LSTDump) that receives LST telescope raw data, and sends a string with LST tag and raw data string representation.
+A stager step (OtherDump) that receives OTHER telescope raw data, and sends a string with OTHER tag and raw data string representation.
+This step runs on 2 processes (this is represented by 2 arrows)
+A consumer step (StringWriter) that receives strings and writes them to a file.</span></p>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zmq-library-installation">
+<h3>ZMQ library installation<a class="headerlink" href="#zmq-library-installation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><em>prompt$&gt; conda install pyzmq</em></div></blockquote>
+</div>
+</div>
+<div class="section" id="flow-based-framework-configuration">
+<h2>flow based framework configuration<a class="headerlink" href="#flow-based-framework-configuration" title="Permalink to this headline">¶</a></h2>
+<p>flow based framework configuration is read from a json configuration file, or command line arguments, thanks to traitlets config.</p>
+<div class="section" id="mandatories-configuration-entries">
+<h3>Mandatories configuration entries:<a class="headerlink" href="#mandatories-configuration-entries" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>One producer_conf containing 1 step.</li>
+<li>One consumer_conf containing 1 step.</li>
+<li>One stagers_conf containing 1 to n step(s).</li>
+</ul>
+</div>
+<div class="section" id="mandatory-configuration-per-step">
+<h3>Mandatory configuration per step<a class="headerlink" href="#mandatory-configuration-per-step" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>name  : step name</li>
+<li>class : class name containing algorithm</li>
+<li>module: python module containing class (defined above)</li>
+<li>next_steps: list of next steps (you should use comma to separate items)</li>
+</ul>
+<p>Optional general entries:
+- zmq_port: By default zmq used port from 5555 to 5600. You can change it in configuration json filees.
+i.e: “zmq_ports” :  [6001,6002,6004,6005],</p>
+<div class="section" id="optional-entry-per-step">
+<h4>Optional entry per step<a class="headerlink" href="#optional-entry-per-step" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>nb_process:  only available for stage, not for producer or consumer. Define how many process will execute this stage</li>
+<li>queue_limit:  Define maximum number of message a router can queue for this step. Used it to limit memery consumption.</li>
+</ul>
+</div>
+<div class="section" id="user-option-for-step">
+<h4>User option for step<a class="headerlink" href="#user-option-for-step" title="Permalink to this headline">¶</a></h4>
+<p>If step class derived form Component, you can add all required parameters for the step, and get them at execution time.
+You have to add a new entry with step’s class name.
+! Do not use entries in stagers_conf, producer_conf or consumer_conf</p>
+</div>
+<div class="section" id="json-example">
+<h4>json example<a class="headerlink" href="#json-example" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;Flow&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;producer_conf&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;SimTelArrayReader&quot;</span><span class="p">,</span> <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;ctapipe.flow.algorithms.simtelarray_reader&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SimTelArrayReader&quot;</span><span class="p">,</span><span class="nt">&quot;next_steps&quot;</span> <span class="p">:</span> <span class="s2">&quot;ShuntTelescope&quot;</span><span class="p">},</span>
+      <span class="nt">&quot;consumer_conf&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;StringWriter&quot;</span><span class="p">,</span> <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;ctapipe.flow.algorithms.string_writer&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;StringWriter&quot;</span><span class="p">},</span>
+      <span class="nt">&quot;stagers_conf&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ShuntTelescope&quot;</span><span class="p">,</span> <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;ShuntTelescope&quot;</span><span class="p">,</span>
+                                      <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;ctapipe.flow.algorithms.shunt_telescope&quot;</span><span class="p">,</span>
+                                      <span class="nt">&quot;next_steps&quot;</span> <span class="p">:</span> <span class="s2">&quot;OtherDump,LSTDump&quot;</span> <span class="p">},</span>
+                        <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;OtherDump&quot;</span><span class="p">,</span> <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;OtherDump&quot;</span><span class="p">,</span>
+                                      <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;ctapipe.flow.algorithms.other_dump&quot;</span><span class="p">,</span>
+                                      <span class="nt">&quot;next_steps&quot;</span> <span class="p">:</span> <span class="s2">&quot;StringWriter&quot;</span><span class="p">,</span> <span class="nt">&quot;nb_process&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+                        <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;LSTDump&quot;</span><span class="p">,</span> <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;LSTDump&quot;</span><span class="p">,</span>
+                                      <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;ctapipe.flow.algorithms.lst_dump&quot;</span><span class="p">,</span>
+                                      <span class="nt">&quot;next_steps&quot;</span> <span class="p">:</span> <span class="s2">&quot;StringWriter&quot;</span><span class="p">,</span> <span class="nt">&quot;nb_process&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;queue_limit&quot;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+                      <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;SimTelArrayReader&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;gamma_test.simtel.gz&quot;</span><span class="p">},</span>
+  <span class="nt">&quot;StringWriter&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;/tmp/string_writter.txt&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="steps-implementation">
+<h2>Steps implementation<a class="headerlink" href="#steps-implementation" title="Permalink to this headline">¶</a></h2>
+<p>Step is defined in a Python class. Each class defines 3 methods: init, run and finish
+These 3 methods are executed by the flow based framework .</p>
+<div class="section" id="producer-run-method">
+<h3>Producer run method<a class="headerlink" href="#producer-run-method" title="Permalink to this headline">¶</a></h3>
+<p>Producer class run method does not have any input parameter.
+Use yeld to send data to next step. If there are several steps linked to it, yield
+the result in a tuple with the name of next step as last tuple value.
+i.e.: yield((result,’PAIR’))</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">input_file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="k">yield</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">input_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stager-run-method">
+<h3>Stager run method<a class="headerlink" href="#stager-run-method" title="Permalink to this headline">¶</a></h3>
+<p>Stager class run method takes one parameter (sent by the previous step).
+Use return or yield to send data to next step.If there are several steps linked to it, return or yield
+the result in a tuple with the name of next step as last tuple value.
+i.e.: yield((result,’StringWriter’))</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">if</span> <span class="n">event</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="k">return</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">dl0</span><span class="o">.</span><span class="n">tels_with_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In case of a step has to send several output for one input to the next step :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="k">if</span> <span class="n">event</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">tels</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">dl0</span><span class="o">.</span><span class="n">tels_with_data</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="k">for</span> <span class="n">tel</span> <span class="ow">in</span> <span class="n">tels</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="k">yield</span><span class="p">(</span><span class="n">tel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="consumer-run-method">
+<h3>Consumer run method<a class="headerlink" href="#consumer-run-method" title="Permalink to this headline">¶</a></h3>
+<p>Consumer class run method takes one parameter and does not return anything</p>
+</div>
+<div class="section" id="send-message-with-several-next-steps">
+<h3>Send message with several next steps.<a class="headerlink" href="#send-message-with-several-next-steps" title="Permalink to this headline">¶</a></h3>
+<p>In case of producer or stage have got several next step (next_steps keyword in configuration),
+you can choose the step that will receive data by passing its name as last tuple value with the result:
+i.e return((res1,res2),’NEXT_STEP_NAME’).
+If the last tuple value is not a available next_step (from configuration), the full tuple is send to
+the default next_step.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="k">if</span> <span class="n">event</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">tels</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">dl0</span><span class="o">.</span><span class="n">tels_with_data</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="k">for</span> <span class="n">tel</span> <span class="ow">in</span> <span class="n">tels</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="k">if</span> <span class="n">tel</span> <span class="ow">in</span> <span class="n">lst_list</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>                <span class="k">yield</span><span class="p">(</span><span class="n">tel</span><span class="p">,</span><span class="s1">&#39;LST_CALIBRATION&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="k">elif</span> <span class="n">tel</span> <span class="ow">in</span> <span class="n">mst_list</span>
+<span class="gp">&gt;&gt;&gt; </span>                <span class="k">yield</span><span class="p">(</span><span class="n">tel</span><span class="p">,</span><span class="s1">&#39;MST_CALIBRATION&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">connections</span></code> member variable can be used by Producers and stagers in their <code class="xref py py-obj docutils literal notranslate"><span class="pre">run()</span></code>
+member method to get the list of connections names.
+For instance, to broadcast an event to all linked stagers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="k">if</span> <span class="n">event</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="k">for</span> <span class="n">connection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>           <span class="k">yield</span> <span class="n">event</span><span class="p">,</span> <span class="n">connection</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="running-the-ctapipe-flow">
+<h2>Running the ctapipe-flow<a class="headerlink" href="#running-the-ctapipe-flow" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><em>prompt$&gt; ctapipe-flow –config=mypipeconfig.json</em></div></blockquote>
+<p>By default it will run the flow based framework in sequential mode.
+Use <code class="xref py py-obj docutils literal notranslate"><span class="pre">--mode=multiprocess</span></code> to run it in a multiprocess mode.
+By default it does not send any data to gui. To activate data transmition to gui,
+add <code class="xref py py-obj docutils literal notranslate"><span class="pre">--gui=True</span></code> option.
+flow based framework  send its activity to a GUI  on <a class="reference external" href="tcp://localhost:5565">tcp://localhost:5565</a>.
+But if the GUI is running on another system, you can use –gui_address
+option to define another address.
+Configure the firewall to allow access to that port for authorized computers.</p>
+<div class="section" id="execution-examples">
+<h3>Execution examples<a class="headerlink" href="#execution-examples" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><em>prompt$&gt; ctapipe-flow –config=examples/flow/flow_py/example.json</em></div></blockquote>
+</div>
+</div>
+<div class="section" id="flow-based-framework-end">
+<h2>flow based framework end<a class="headerlink" href="#flow-based-framework-end" title="Permalink to this headline">¶</a></h2>
+<p>In multiprocess mode ,the main challenge is how to stop all Threads without loosing an inputs.
+Indeed, we must ensure that all queues are empty and all processed are waiting for a new entry (not active).
+Because Python Process can not be paused, we can not check that all the queues are empty and at the same time check that all processes are inactive
+So there is a risk that a queue is filled again when we control state of process.
+the choosen solution is:
+1 check that all queues are empty.
+2 check that all processes are waiting for a new job since more that a definied time (5 seconds by default)</p>
+</div>
+<div class="section" id="graphical-representation">
+<h2>Graphical representation<a class="headerlink" href="#graphical-representation" title="Permalink to this headline">¶</a></h2>
+<p>A GUI can be launch to keep a close watch on flow based framework  execution.
+This GUI can be launch on the same system than the flow based framework  or on a different one.
+By default GUI is binded to port 5565. You can change it with <code class="xref py py-obj docutils literal notranslate"><span class="pre">--PipeGui.port</span></code> option</p>
+<blockquote>
+<div><em>prompt$&gt; python ctapipe/flow/gui/guiflow.py</em></div></blockquote>
+<div class="section" id="optional-packages-for-gui">
+<h3>Optional packages for GUI<a class="headerlink" href="#optional-packages-for-gui" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pyqt4-installation">
+<h4>PyQt4 installation<a class="headerlink" href="#pyqt4-installation" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><em>prompt$&gt; conda install pyqt</em></div></blockquote>
+</div>
+<div class="section" id="graphviz-installation">
+<h4>graphviz installation<a class="headerlink" href="#graphviz-installation" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><em>prompt$&gt; pip install graphviz</em></div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="foreseen-improvement">
+<h2>Foreseen improvement<a class="headerlink" href="#foreseen-improvement" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="on-demand-recomputing">
+<h3>On demand recomputing<a class="headerlink" href="#on-demand-recomputing" title="Permalink to this headline">¶</a></h3>
+<p>Lazy evaluation of function, by storing the results to the disk,
+and not rerunning the function twice for the same arguments.</p>
+</div>
+<div class="section" id="working-data-in-shared-memory-memmaping">
+<h3>Working  data in shared memory (memmaping)<a class="headerlink" href="#working-data-in-shared-memory-memmaping" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>To avoid to serialize and deserialize data and pass data thanks to ZMQ,</dt>
+<dd>a shared memory system can be develop between stages.</dd>
+</dl>
+</div>
+<div class="section" id="muliple-flow-based-framework-management-by-gui">
+<h3>Muliple flow based framework management by GUI<a class="headerlink" href="#muliple-flow-based-framework-management-by-gui" title="Permalink to this headline">¶</a></h3>
+<p>When several flow based framework are running, GUI should allows to choose which flow based framework user want to follow.</p>
+</div>
+</div>
+<div class="section" id="issues">
+<h2>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">¶</a></h2>
+<p>Command ctapipe-flow –help-all, does not display traitlets parameters for classes
+derived from ctapipe.core.Component, used as Producer, Stager or Consumer.
+This is because ctapipe-flow instantiates theses classes after Flow.__init__() method.
+Anyway, theses traitlets parameters are take into account by these classes.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="json-configuration-example">
+<h3>json configuration example<a class="headerlink" href="#json-configuration-example" title="Permalink to this headline">¶</a></h3>
+<p>Refer to <a class="reference internal" href="#json-example">json example</a>.</p>
+</div>
+<div class="section" id="producer-example">
+<span id="example"></span><h3>Producer example<a class="headerlink" href="#producer-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctapipe.utils.datasets</span> <span class="kn">import</span> <span class="n">get_path</span>
+<span class="kn">from</span> <span class="nn">ctapipe.io.hessio</span> <span class="kn">import</span> <span class="n">hessio_event_source</span>
+<span class="kn">from</span> <span class="nn">ctapipe.core</span> <span class="kn">import</span> <span class="n">Component</span>
+<span class="kn">from</span> <span class="nn">traitlets</span> <span class="kn">import</span> <span class="n">Unicode</span>
+
+<span class="k">class</span> <span class="nc">SimTelArrayReader</span><span class="p">(</span><span class="n">Component</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;`SimTelArrayReader` class represents a Producer for flow based framework.</span>
+<span class="sd">        It opens simtelarray file and yiekld even in run method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">Unicode</span><span class="p">(</span><span class="s1">&#39;gamma&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;simtel MC input file&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span>
+        <span class="n">config</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">allow_none</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--- SimTelArrayReader init {}---&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">in_file</span> <span class="o">=</span> <span class="n">get_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">hessio_event_source</span><span class="p">(</span><span class="n">in_file</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;{} successfully opened {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;could not open &#39;</span> <span class="o">+</span> <span class="n">in_file</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">:</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">dl0</span><span class="o">.</span><span class="n">event_id</span> <span class="o">=</span> <span class="n">counter</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c1"># send new job to next step thanks to router</span>
+            <span class="k">yield</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- SimTelArrayReader Done ---&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">finish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--- SimTelArrayReader finish ---&quot;</span><span class="p">)</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stager-example">
+<h3>Stager example<a class="headerlink" href="#stager-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctapipe.utils.datasets</span> <span class="kn">import</span> <span class="n">get_path</span>
+<span class="kn">import</span> <span class="nn">ctapipe.instrument.InstrumentDescription</span> <span class="kn">as</span> <span class="nn">ID</span>
+<span class="kn">from</span> <span class="nn">ctapipe.core</span> <span class="kn">import</span> <span class="n">Component</span>
+<span class="kn">from</span> <span class="nn">traitlets</span> <span class="kn">import</span> <span class="n">Unicode</span>
+
+
+<span class="n">LST</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">OTHER</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">class</span> <span class="nc">ShuntTelescope</span><span class="p">(</span><span class="n">Component</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;ShuntTelescope class represents a Stage for flow based framework.</span>
+<span class="sd">        It shunts event based on telescope type</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--- ShuntTelescope init ---&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telescope_types</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope_types</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">=</span><span class="n">LST</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope_types</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">=</span><span class="n">OTHER</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="n">triggered_telescopes</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">dl0</span><span class="o">.</span><span class="n">tels_with_data</span>
+        <span class="k">for</span> <span class="n">telescope_id</span> <span class="ow">in</span> <span class="n">triggered_telescopes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">telescope_types</span><span class="p">[</span><span class="n">telescope_id</span><span class="p">]</span> <span class="o">==</span> <span class="n">LST</span><span class="p">:</span>
+            <span class="k">return</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">dl0</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="n">telescope_id</span><span class="p">],</span><span class="s1">&#39;LSTDump&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">telescope_types</span><span class="p">[</span><span class="n">telescope_id</span><span class="p">]</span> <span class="o">==</span> <span class="n">OTHER</span><span class="p">:</span>
+            <span class="k">return</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">dl0</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="n">telescope_id</span><span class="p">],</span><span class="s1">&#39;OtherDump&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">finish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--- ShuntTelescope finish ---&quot;</span><span class="p">)</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="consumer-example">
+<h3>Consumer example<a class="headerlink" href="#consumer-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ctapipe.configuration.core</span> <span class="kn">import</span> <span class="n">Configuration</span><span class="p">,</span> <span class="n">ConfigurationException</span>
+<span class="kn">from</span> <span class="nn">ctapipe.core</span> <span class="kn">import</span> <span class="n">Component</span>
+
+<span class="k">class</span> <span class="nc">StringWriter</span><span class="p">(</span><span class="n">Component</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;/tmp/test.txt&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--- StringWriter init ---&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">object</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">finish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--- StringWriter finish ---&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../image/index.html" class="btn btn-neutral float-right" title="Imaging (image)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../api/ctapipe.core.ToolConfigurationError.html" class="btn btn-neutral" title="ToolConfigurationError" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+NectarCAMCameraContainer
+========================
+
+.. currentmodule:: ctapipe.io.containers
+
+.. autoclass:: NectarCAMCameraContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~NectarCAMCameraContainer.camera_event_type
+      ~NectarCAMCameraContainer.integrals
+      ~NectarCAMCameraContainer.meta
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: camera_event_type
+   .. autoattribute:: integrals
+   .. autoattribute:: meta

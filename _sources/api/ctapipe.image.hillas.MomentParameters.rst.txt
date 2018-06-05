@@ -1,0 +1,7 @@
+MomentParameters
+================
+
+.. currentmodule:: ctapipe.image.hillas
+
+.. autoclass:: MomentParameters
+   :show-inheritance:

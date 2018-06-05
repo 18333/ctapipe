@@ -1,0 +1,29 @@
+HillasReconstructor
+===================
+
+.. currentmodule:: ctapipe.reco
+
+.. autoclass:: HillasReconstructor
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~HillasReconstructor.fit_core_crosses
+      ~HillasReconstructor.fit_core_minimise
+      ~HillasReconstructor.fit_h_max
+      ~HillasReconstructor.fit_origin_crosses
+      ~HillasReconstructor.fit_origin_minimise
+      ~HillasReconstructor.get_great_circles
+      ~HillasReconstructor.predict
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: fit_core_crosses
+   .. automethod:: fit_core_minimise
+   .. automethod:: fit_h_max
+   .. automethod:: fit_origin_crosses
+   .. automethod:: fit_origin_minimise
+   .. automethod:: get_great_circles
+   .. automethod:: predict

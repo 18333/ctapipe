@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChargeResolutionCalculator &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Calibration (calib)" href="../calib/index.html" />
+    <link rel="prev" title="Analysis (analysis)" href="../analysis/index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../analysis/index.html#introduction">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../analysis/index.html#reference-api">Reference/API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../analysis/index.html#module-ctapipe.analysis.camera">ctapipe.analysis.camera Package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../analysis/index.html#classes">Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../analysis/index.html#class-inheritance-diagram">Class Inheritance Diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a> &raquo;</li>
+        
+      <li>ChargeResolutionCalculator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ctapipe.analysis.camera.ChargeResolutionCalculator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chargeresolutioncalculator">
+<h1>ChargeResolutionCalculator<a class="headerlink" href="#chargeresolutioncalculator" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator">
+<em class="property">class </em><code class="descclassname">ctapipe.analysis.camera.</code><code class="descname">ChargeResolutionCalculator</code><span class="sig-paren">(</span><em>config=None</em>, <em>tool=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ctapipe.core.component.Component</span></code></p>
+<p>Class to handle the calculation of Charge Resolution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>max_pe</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">Maximum pe to calculate the charge resolution up to.</p>
+</dd>
+<dt><strong>sum_dict</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Dictionary to store the running sum for each true charge.</p>
+</dd>
+<dt><strong>n_dict</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Dictionary to store the running number for each true charge.</p>
+</dd>
+<dt><strong>variation_hist_nbins</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Number of bins for the variation histogram.</p>
+</dd>
+<dt><strong>variation_hist_range</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">X and Y range for the variation histogram.</p>
+</dd>
+<dt><strong>variation_hist</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.histogram2d</span></code></span></dt>
+<dd></dd>
+<dt><strong>variation_xedges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">Edges of the X bins for the variation histogram.</p>
+</dd>
+<dt><strong>variation_yedges</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">Edges of the Y bins for the variation histogram.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Summary</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.binning" title="ctapipe.analysis.camera.ChargeResolutionCalculator.binning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binning</span></code></a></td>
+<td>An int trait.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.log_bins" title="ctapipe.analysis.camera.ChargeResolutionCalculator.log_bins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_bins</span></code></a></td>
+<td>A boolean (True, False) trait.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.max_pe" title="ctapipe.analysis.camera.ChargeResolutionCalculator.max_pe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_pe</span></code></a></td>
+<td>An int trait.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.add_charges" title="ctapipe.analysis.camera.ChargeResolutionCalculator.add_charges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_charges</span></code></a>(true_charge,&nbsp;measured_charge)</td>
+<td>Fill the class parameters with a numpy array of true charge and measured (calibrated) charge from an event.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.get_charge_resolution" title="ctapipe.analysis.camera.ChargeResolutionCalculator.get_charge_resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_charge_resolution</span></code></a>()</td>
+<td>Calculate and obtain the charge resolution graph arrays.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.goal" title="ctapipe.analysis.camera.ChargeResolutionCalculator.goal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">goal</span></code></a>(npe)</td>
+<td>CTA goal curve.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.limit_curves" title="ctapipe.analysis.camera.ChargeResolutionCalculator.limit_curves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">limit_curves</span></code></a>(npe,&nbsp;n_nsb,&nbsp;n_add,&nbsp;enf,&nbsp;sigma2)</td>
+<td>Equation for calculating the Goal and Requirement curves, as defined in SCI-MC/121113.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.load" title="ctapipe.analysis.camera.ChargeResolutionCalculator.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.poisson" title="ctapipe.analysis.camera.ChargeResolutionCalculator.poisson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson</span></code></a>(npe)</td>
+<td>Poisson limit curve.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.requirement" title="ctapipe.analysis.camera.ChargeResolutionCalculator.requirement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">requirement</span></code></a>(npe)</td>
+<td>CTA requirement curve.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.save" title="ctapipe.analysis.camera.ChargeResolutionCalculator.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="attribute">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.binning">
+<code class="descname">binning</code><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.binning" title="Permalink to this definition">¶</a></dt>
+<dd><p>An int trait.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.log_bins">
+<code class="descname">log_bins</code><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.log_bins" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean (True, False) trait.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.max_pe">
+<code class="descname">max_pe</code><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.max_pe" title="Permalink to this definition">¶</a></dt>
+<dd><p>An int trait.</p>
+</dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.add_charges">
+<code class="descname">add_charges</code><span class="sig-paren">(</span><em>true_charge</em>, <em>measured_charge</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator.add_charges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.add_charges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the class parameters with a numpy array of true charge and
+measured (calibrated) charge from an event. The two arrays must be the
+same size.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>true_charge</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">Array of true (MC) charge.
+Obtained from event.mc.tel[telid].image[channel]</p>
+</dd>
+<dt><strong>measured_charge</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">Array of measured (dl1 calibrated) charge.
+Obtained from event.mc.tel[tel_id].photo_electron_image</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.get_charge_resolution">
+<code class="descname">get_charge_resolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator.get_charge_resolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.get_charge_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate and obtain the charge resolution graph arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>true_charge</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">The X axis true charges.</p>
+</dd>
+<dt><strong>chargeres</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">The Y axis charge resolution values.</p>
+</dd>
+<dt><strong>chargeres_error</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">The error on the charge resolution.</p>
+</dd>
+<dt><strong>scaled_chargeres</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">The Y axis charge resolution divided by the Goal.</p>
+</dd>
+<dt><strong>scaled_chargeres_error</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">The error on the charge resolution divided by the Goal.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.goal">
+<em class="property">static </em><code class="descname">goal</code><span class="sig-paren">(</span><em>npe</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator.goal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>CTA goal curve.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>npe</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">Number of photoeletrons (variable).</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.limit_curves">
+<em class="property">static </em><code class="descname">limit_curves</code><span class="sig-paren">(</span><em>npe</em>, <em>n_nsb</em>, <em>n_add</em>, <em>enf</em>, <em>sigma2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator.limit_curves"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.limit_curves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equation for calculating the Goal and Requirement curves, as defined
+in SCI-MC/121113.
+<a class="reference external" href="https://portal.cta-observatory.org/recordscentre/Records/SCI/">https://portal.cta-observatory.org/recordscentre/Records/SCI/</a>
+SCI-MC/measurment_errors_system_performance_1YQCBC.pdf</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>npe</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">Number of photoeletrons (variable).</p>
+</dd>
+<dt><strong>n_nsb</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Number of NSB photons.</p>
+</dd>
+<dt><strong>n_add</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Number of photoelectrons from additional noise sources.</p>
+</dd>
+<dt><strong>enf</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Excess noise factor.</p>
+</dd>
+<dt><strong>sigma2</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Percentage ofmultiplicative errors.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.poisson">
+<em class="property">static </em><code class="descname">poisson</code><span class="sig-paren">(</span><em>npe</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator.poisson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.poisson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Poisson limit curve.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>npe</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">Number of photoeletrons (variable).</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.requirement">
+<em class="property">static </em><code class="descname">requirement</code><span class="sig-paren">(</span><em>npe</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator.requirement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.requirement" title="Permalink to this definition">¶</a></dt>
+<dd><p>CTA requirement curve.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>npe</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">Number of photoeletrons (variable).</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ctapipe.analysis.camera.ChargeResolutionCalculator.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ctapipe/analysis/camera/chargeresolution.html#ChargeResolutionCalculator.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ctapipe.analysis.camera.ChargeResolutionCalculator.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../calib/index.html" class="btn btn-neutral float-right" title="Calibration (calib)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../analysis/index.html" class="btn btn-neutral" title="Analysis (analysis)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

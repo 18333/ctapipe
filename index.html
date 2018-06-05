@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CTA Experimental Pipeline Framework (ctapipe) &mdash; ctapipe v0.6.0.post4+git1cb6f21</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started For Developers" href="getting_started/index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6.0.post4+git1cb6f21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>CTA Experimental Pipeline Framework (<code class="docutils literal notranslate"><span class="pre">ctapipe</span></code>)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cta-experimental-pipeline-framework-ctapipe">
+<span id="ctapipe"></span><h1>CTA Experimental Pipeline Framework (<code class="xref py py-mod docutils literal notranslate"><span class="pre">ctapipe</span></code>)<a class="headerlink" href="#cta-experimental-pipeline-framework-ctapipe" title="Permalink to this headline">¶</a></h1>
+<p><strong>version</strong>:  0.6.0.post4+git1cb6f21</p>
+<a class="reference internal image-reference" href="_images/event.png"><img alt="_images/event.png" class="align-center" src="_images/event.png" style="width: 90%;" /></a>
+<div class="section" id="what-is-ctapipe">
+<h2>What is ctapipe?<a class="headerlink" href="#what-is-ctapipe" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctapipe</span></code> is an experimental framework for the data processing
+pipelines for CTA.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This is not yet stable code, so expect large and rapid changes to
+structure and functionality as we explore various design choices.</p>
+</div>
+<ul class="simple">
+<li>Code, feature requests, bug reports, pull requests: <a class="reference external" href="https://github.com/cta-observatory/ctapipe">https://github.com/cta-observatory/ctapipe</a></li>
+<li>Docs: <a class="reference external" href="https://cta-observatory.github.io/ctapipe/">https://cta-observatory.github.io/ctapipe/</a></li>
+<li>License: BSD-3</li>
+<li>Python 3.4 or later (Python 2 is not supported)</li>
+</ul>
+</div>
+<div class="section" id="general-documentation">
+<span id="ctapipe-docs"></span><h2>General documentation<a class="headerlink" href="#general-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Command line tools (<code class="docutils literal notranslate"><span class="pre">tools</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis/index.html">Analysis (<code class="docutils literal notranslate"><span class="pre">analysis</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calib/index.html">Calibration (<code class="docutils literal notranslate"><span class="pre">calib</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinates/index.html">Coordinates (<code class="docutils literal notranslate"><span class="pre">coordinates</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core Structures and Base Classes (<code class="docutils literal notranslate"><span class="pre">core</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow/index.html">Flow-based framework (<code class="docutils literal notranslate"><span class="pre">flow</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image/index.html">Imaging (<code class="docutils literal notranslate"><span class="pre">image</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrument/index.html">Instrument (<code class="docutils literal notranslate"><span class="pre">instrument</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/index.html">Input/Output (<code class="docutils literal notranslate"><span class="pre">io</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reco/index.html">Reconstruction (<code class="docutils literal notranslate"><span class="pre">reco</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils/index.html">Utilities (<code class="docutils literal notranslate"><span class="pre">utils</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization/index.html">Visualization (<code class="docutils literal notranslate"><span class="pre">visualization</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-api-status-relative-to-next-release">
+<h2>Module API Status (relative to next release)<a class="headerlink" href="#module-api-status-relative-to-next-release" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>stable</strong> = should not change drastically in next release</li>
+<li><strong>caution</strong> = mostly stable, but expect some changes</li>
+<li><strong>unstable</strong> = expect large changes and avoid heavy reliance</li>
+<li><strong>experimental</strong> = stable feature, but under evaluation</li>
+<li><strong>deprecated</strong> = do not use</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Module</th>
+<th class="head">Status</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">analysis</span></code></td>
+<td><strong>stable</strong></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="calib/index.html#module-ctapipe.calib" title="ctapipe.calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib</span></code></a></td>
+<td><strong>stable</strong></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="coordinates/index.html#module-ctapipe.coordinates" title="ctapipe.coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">coordinates</span></code></a></td>
+<td>caution</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="core/index.html#module-ctapipe.core" title="ctapipe.core"><code class="xref py py-obj docutils literal notranslate"><span class="pre">core</span></code></a></td>
+<td><strong>stable</strong></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">flow</span></code></td>
+<td>experimental</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="instrument/index.html#module-ctapipe.instrument" title="ctapipe.instrument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">instrument</span></code></a></td>
+<td><strong>stable</strong></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting</span></code></td>
+<td>caution</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="reco/index.html#module-ctapipe.reco" title="ctapipe.reco"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reco</span></code></a></td>
+<td><strong>stable</strong></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="utils/index.html#module-ctapipe.utils" title="ctapipe.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils</span></code></a></td>
+<td><strong>stable</strong></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="visualization/index.html#module-ctapipe.visualization" title="ctapipe.visualization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualization</span></code></a></td>
+<td><strong>stable</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="authors-as-of-2017-10-11">
+<h2>Authors (as of 2017-10-11)<a class="headerlink" href="#authors-as-of-2017-10-11" title="Permalink to this headline">¶</a></h2>
+<p>(computed from the list of GIT commits)</p>
+<ul class="simple">
+<li>Karl Kosack</li>
+<li>Jason Watson</li>
+<li>Dan Parsons</li>
+<li>Jacquemier</li>
+<li>Tino Michael</li>
+<li>Maximilian Nöthe</li>
+<li>Christoph Deil</li>
+<li>Alison Mitchell</li>
+<li>justuszorn</li>
+<li>Samuel Timothy Spencer</li>
+<li>AMWMitchell</li>
+<li>Raquel de los Reyes</li>
+<li>Michele Mastropietro</li>
+<li>Jeremie DECOCK</li>
+<li>Kai Brügge</li>
+<li>tino-michael</li>
+<li>Abelardo Moralejo Olaizola</li>
+<li>Markus Gaug</li>
+<li>tialis</li>
+<li>fvisconti</li>
+<li>Wrijupan Bhattacharyya</li>
+<li>bultako</li>
+<li>Paolo Cumani</li>
+<li>Tristan Carel</li>
+<li>Michael Punch</li>
+<li>Miguel Nievas</li>
+<li>Orel Gueta</li>
+<li>Tarek Hassan</li>
+<li>Daniel Parsons</li>
+<li>GernotMaier</li>
+<li>David Landriu</li>
+<li>labsaha</li>
+<li>Pierre Aubert</li>
+</ul>
+</div>
+<div class="section" id="development-help">
+<h2>Development Help<a class="headerlink" href="#development-help" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Development workflow examples from AstroPy: <a class="reference external" href="http://astropy.readthedocs.org/en/latest/development/workflow/development_workflow.html">http://astropy.readthedocs.org/en/latest/development/workflow/development_workflow.html</a></li>
+<li>GIT tutorial: <a class="reference external" href="https://www.atlassian.com/git/tutorials/syncing/git-pull">https://www.atlassian.com/git/tutorials/syncing/git-pull</a></li>
+<li>Code distribution and Packaging <a class="reference external" href="https://packaging.python.org/en/latest/">https://packaging.python.org/en/latest/</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="getting_started/index.html" class="btn btn-neutral float-right" title="Getting Started For Developers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 05 Jun 2018 11:17.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.6.0.post4+git1cb6f21',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
